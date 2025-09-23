@@ -13,4 +13,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Multiplying by delta makes asteroid speed consistent
 	# across different frame rates
-	self.position.y += speed * delta;
+	var rotated_speed = Vector2(
+			-sin(self.rotation) * speed * delta, 
+			cos(self.rotation) * speed * delta
+		)
+	self.position += rotated_speed;
