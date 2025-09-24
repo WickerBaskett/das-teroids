@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5gxv14cha4cl"]
+[gd_scene load_steps=2 format=3 uid="uid://dtupna0ajt487"]
 
 [ext_resource type="Script" uid="uid://p5yknyxamdw1" path="res://scripts/asteroid_spawner.gd" id="1_l5w2k"]
 
