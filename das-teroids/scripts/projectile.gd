@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 	self.position += rotated_speed
 
 
+# On collision with asteroid
 func _on_area_entered(area: Area2D) -> void:
 	print("Proj hit area...")
 	if area.has_method("hit"):
