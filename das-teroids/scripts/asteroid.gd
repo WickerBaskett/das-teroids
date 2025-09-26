@@ -19,8 +19,10 @@ func _process(delta: float) -> void:
 	)
 	self.position += rotated_speed
 
+
 func hit():
 	call_deferred("queue_free")
+
 
 # On player collision
 func _on_body_entered(body: Node2D) -> void:
