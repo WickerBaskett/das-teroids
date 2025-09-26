@@ -3,6 +3,7 @@ extends Node2D
 const ASTEROID = preload("uid://cj6wbc1rkkw3t")
 var view: Rect2
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	view = get_viewport_rect()
