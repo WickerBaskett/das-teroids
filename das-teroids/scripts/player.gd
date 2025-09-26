@@ -6,10 +6,12 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")
 
 var can_attack: bool = true
 
+
 # Called once per frame
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("fire") and can_attack:
 		fire()
+
 
 # This is the default movement function provided by CharacterBody2D
 # This will be changed with the Player Controller ticket
@@ -30,8 +32,9 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+
 # Handle spawning projectile
-func fire(): 
+func fire():
 	# Start attack cooldown
 	can_attack = false
 	get_node("AttackCooldown").start()
@@ -53,15 +56,17 @@ func fire():
 
 	# Offset bullet spawn to spawn outside of player
 	var rotated_pos = Vector2(
-	sin(self.rotation) * ((player_size.x / 2) + (proj_size.x / 2)), 
-	-cos(self.rotation) * ((player_size.y / 2) + (proj_size.y / 2))
+		sin(self.rotation) * ((player_size.x / 2) + (proj_size.x / 2)),
+		-cos(self.rotation) * ((player_size.y / 2) + (proj_size.y / 2))
 	)
 
 	proj.position += rotated_pos
 
+
 # Called on collision with asteroid
 func hit() -> void:
 	call_deferred("queue_free")
+
 
 # Called when player can attack again
 func _on_attack_cooldown_timeout() -> void:
