@@ -23,5 +23,6 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+# Called on collision with asteroid
 func hit() -> void:
-	self.hide();
+	call_deferred("queue_free");
