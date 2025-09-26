@@ -18,3 +18,10 @@ func _process(delta: float) -> void:
 		-sin(self.rotation) * speed * delta, cos(self.rotation) * speed * delta
 	)
 	self.position += rotated_speed
+
+
+# On player collision
+func _on_body_entered(body: Node2D) -> void:
+	print("Body Hit Asteroid...")
+	if body.has_method("hit"):
+		body.hit()
