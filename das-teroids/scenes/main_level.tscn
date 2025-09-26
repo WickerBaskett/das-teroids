@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=5 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
+[ext_resource type="PackedScene" uid="uid://bfjxjanc6tx24" path="res://scenes/score_keeper.tscn" id="3_6we3w"]
+[ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level.gd" id="4_qmak7"]
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("4_qmak7")
 
 [node name="Player" parent="." instance=ExtResource("2_ufxs0")]
 position = Vector2(396, 399)
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_6we3w")]
+
+[node name="ScoreKeeper" parent="." instance=ExtResource("3_6we3w")]
+
+[connection signal="dead" from="Player" to="." method="_on_player_death"]
