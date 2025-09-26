@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Signal emitted when player dies
+signal dead
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -26,4 +29,10 @@ func _physics_process(_delta: float) -> void:
 
 # Called on collision with asteroid
 func hit() -> void:
+	die()
+
+
+# Called when player has died
+func die() -> void:
+	emit_signal("dead")
 	call_deferred("queue_free")

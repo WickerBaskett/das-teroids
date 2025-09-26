@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjxjanc6tx24"]
+
+[ext_resource type="Script" uid="uid://d3pc0alcmjecl" path="res://scripts/score_keeper.gd" id="1_d6wdj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5in7i"]
+font_size = 64
+
+[node name="ScoreKeeper" type="Node2D"]
+script = ExtResource("1_d6wdj")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 17.0
+offset_right = 254.0
+offset_bottom = 88.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_5in7i")
+uppercase = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
