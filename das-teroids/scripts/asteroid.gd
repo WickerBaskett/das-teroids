@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	)
 	self.position += rotated_speed
 
+
 # On player collision
 func _on_body_entered(body: Node2D) -> void:
 	print("Body Hit Asteroid...")
