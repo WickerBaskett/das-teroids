@@ -9,4 +9,5 @@ extends Node
 func _on_player_death() -> void:
 	asteroid_spawner.call_deferred("queue_free")
 	score_timer.stop()
+	game_over.size = get_viewport().size
 	game_over.visible = true
