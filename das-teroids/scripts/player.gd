@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-
 # Signal emitted when player dies
 signal dead
 
@@ -8,7 +7,6 @@ signal dead
 const SPEED_SCALE = 10.0
 # Scales the rotation speed of player
 const ROTATION_SPEED_SCALE = 0.1
-
 
 
 func _physics_process(_delta: float) -> void:
