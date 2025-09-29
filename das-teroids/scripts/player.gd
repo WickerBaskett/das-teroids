@@ -9,6 +9,7 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")
 
 var can_attack: bool = true
 
+
 # Called once per frame
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("fire") and can_attack:
