@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+# Signal emitted when player dies
+signal dead
+
 # Scales the linear speed of player
 const SPEED_SCALE = 10.0
 # Scales the rotation speed of player
@@ -16,4 +19,10 @@ func _physics_process(_delta: float) -> void:
 
 # Called on collision with asteroid
 func hit() -> void:
+	die()
+
+
+# Called when player has died
+func die() -> void:
+	emit_signal("dead")
 	call_deferred("queue_free")

@@ -1,6 +1,6 @@
 extends Node2D
 
-const ASTEROID = preload("uid://b3kmf2dcy04sj")
+const ASTEROID = preload("uid://cj6wbc1rkkw3t")
 var view: Rect2
 
 
