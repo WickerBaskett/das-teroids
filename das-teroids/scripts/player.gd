@@ -37,14 +37,11 @@ func fire():
 	var proj = PROJECTILE.instantiate()
 	get_parent().add_child(proj)
 
-	# The projectile is a child of the main_level scene
-	# so that it doesnt move with the player, we need to set
-	# the starting position to match the players!
+	# Assign starting position and rotation
 	proj.position = self.position
 	proj.rotation = self.rotation
 
-	# Get player dimensions so we can spawn the bullet outside
-	# of the player
+	# Get player and projectile dimensions
 	var player_size = get_node("CollisionShape2D").get_shape().get_rect().size
 	var proj_size = proj.find_child("CollisionShape2D").get_shape().get_rect().size
 

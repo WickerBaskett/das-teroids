@@ -10,6 +10,9 @@ func _process(delta: float) -> void:
 	self.position += rotated_speed
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("hit"):
-		body.hit()
+# On collision with asteroid
+func _on_area_entered(area: Area2D) -> void:
+	print("Proj hit area...")
+	if area.has_method("hit"):
+		area.hit()
+	call_deferred("queue_free")
