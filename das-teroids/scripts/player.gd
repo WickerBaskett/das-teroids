@@ -1,11 +1,13 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+# Scales the linear speed of player
+const SPEED_SCALE = 10.0
+# Scales the rotation speed of player
+const ROTATION_SPEED_SCALE = 0.1
+
 const PROJECTILE = preload("uid://ddoufa6s84qes")
 
 var can_attack: bool = true
-
 
 # Called once per frame
 func _process(_delta: float) -> void:
@@ -13,24 +15,12 @@ func _process(_delta: float) -> void:
 		fire()
 
 
-# This is the default movement function provided by CharacterBody2D
-# This will be changed with the Player Controller ticket
 func _physics_process(_delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var x_direction := Input.get_axis("ui_left", "ui_right")
-	if x_direction:
-		velocity.x = x_direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	var player_rotation := Input.get_axis("ui_left", "ui_right")
 	var y_direction := Input.get_axis("ui_up", "ui_down")
-	if y_direction:
-		velocity.y = y_direction * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	move_and_slide()
+	angular_velocity += player_rotation * ROTATION_SPEED_SCALE
+	linear_velocity += global_transform.y * y_direction * SPEED_SCALE
 
 
 # Handle spawning projectile
