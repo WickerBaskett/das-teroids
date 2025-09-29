@@ -8,6 +8,16 @@ const SPEED_SCALE = 10.0
 # Scales the rotation speed of player
 const ROTATION_SPEED_SCALE = 0.1
 
+const PROJECTILE = preload("uid://ddoufa6s84qes")
+
+var can_attack: bool = true
+
+
+# Called once per frame
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("fire") and can_attack:
+		fire()
+
 
 func _physics_process(_delta: float) -> void:
 	var player_rotation := Input.get_axis("ui_left", "ui_right")
@@ -15,6 +25,36 @@ func _physics_process(_delta: float) -> void:
 
 	angular_velocity += player_rotation * ROTATION_SPEED_SCALE
 	linear_velocity += global_transform.y * y_direction * SPEED_SCALE
+
+
+# Handle spawning projectile
+func fire():
+	# Start attack cooldown
+	can_attack = false
+	get_node("AttackCooldown").start()
+
+	# Create projectile
+	var proj = PROJECTILE.instantiate()
+	get_parent().add_child(proj)
+
+	# The projectile is a child of the main_level scene
+	# so that it doesnt move with the player, we need to set
+	# the starting position to match the players!
+	proj.position = self.position
+	proj.rotation = self.rotation
+
+	# Get player dimensions so we can spawn the bullet outside
+	# of the player
+	var player_size = get_node("CollisionShape2D").get_shape().get_rect().size
+	var proj_size = proj.find_child("CollisionShape2D").get_shape().get_rect().size
+
+	# Offset bullet spawn to spawn outside of player
+	var rotated_pos = Vector2(
+		sin(self.rotation) * ((player_size.x / 2) + (proj_size.x / 2)),
+		-cos(self.rotation) * ((player_size.y / 2) + (proj_size.y / 2))
+	)
+
+	proj.position += rotated_pos
 
 
 # Called on collision with asteroid
@@ -26,3 +66,8 @@ func hit() -> void:
 func die() -> void:
 	emit_signal("dead")
 	call_deferred("queue_free")
+
+
+# Called when player can attack again
+func _on_attack_cooldown_timeout() -> void:
+	can_attack = true

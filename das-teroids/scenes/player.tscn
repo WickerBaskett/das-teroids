@@ -10,6 +10,7 @@ size = Vector2(90, 90)
 gravity_scale = 0.0
 linear_damp = 0.5
 angular_damp = 0.1
+
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,3 +19,8 @@ texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
