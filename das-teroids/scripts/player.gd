@@ -3,15 +3,16 @@ extends RigidBody2D
 # Signal emitted when player dies
 signal dead
 
-# Scales the linear speed of player
-const SPEED_SCALE = 10.0
-# Scales the rotation speed of player
-const ROTATION_SPEED_SCALE = 0.1
-
-const PROJECTILE = preload("uid://ddoufa6s84qes")
+const SPEED_SCALE = 10.0 # Scales the linear speed of player
+const ROTATION_SPEED_SCALE = 0.1 # Scales the rotation speed of player
+const PROJECTILE = preload("uid://ddoufa6s84qes") # Projectile Scene
 
 var can_attack: bool = true
+@onready var view_size = get_viewport_rect().size
 
+func _ready() -> void:
+	var viewport = get_viewport()
+	viewport.connect("size_changed", _on_viewport_size_changed)
 
 # Called once per frame
 func _process(_delta: float) -> void:
@@ -25,6 +26,9 @@ func _physics_process(_delta: float) -> void:
 
 	angular_velocity += player_rotation * ROTATION_SPEED_SCALE
 	linear_velocity += global_transform.y * y_direction * SPEED_SCALE
+	
+	# Wrap player position around current viewport size
+	position = position.posmodv(view_size)
 
 
 # Handle spawning projectile
@@ -68,3 +72,6 @@ func die() -> void:
 # Called when player can attack again
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
+
+func _on_viewport_size_changed() -> void:
+	view_size = get_viewport_rect().size
