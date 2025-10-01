@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtupna0ajt487"]
+[gd_scene load_steps=2 format=3 uid="uid://cjsgle643hohi"]
 
 [ext_resource type="Script" uid="uid://p5yknyxamdw1" path="res://scripts/asteroid_spawner.gd" id="1_l5w2k"]
 
@@ -8,4 +8,9 @@ script = ExtResource("1_l5w2k")
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="BumpDifficutly" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BumpDifficutly" to="." method="_on_bump_difficutly_timeout"]
