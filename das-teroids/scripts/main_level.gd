@@ -24,7 +24,7 @@ func _on_viewport_size_change() -> void:
 	var view_rect = valid_space.get_viewport_rect()
 	valid_space.shape.size = view_rect.size
 	valid_space.position = view_rect.size / 2
-pass # Replace with function body.
+
 
 func _on_valid_space_area_exited(area: Area2D) -> void:
 	print("Deleting area: " + str(area))
