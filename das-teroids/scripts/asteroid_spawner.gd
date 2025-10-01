@@ -1,13 +1,12 @@
 extends Node2D
 
-
-@onready var spawn_timer: Timer = $SpawnTimer
-var view: Rect2
-var speed_mod: float = 1.0;
-var spawn_mod: float = 0.8;
-
 const ASTEROID = preload("uid://cj6wbc1rkkw3t")
 
+var view: Rect2
+var speed_mod: float = 1.0
+var spawn_mod: float = 0.8
+
+@onready var spawn_timer: Timer = $SpawnTimer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,8 +17,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	view = get_viewport_rect()
 
+
 # Spawn an asteroid on the edge of the viewport with
-# semi random angle 
+# semi random angle
 func spawn_asteroid() -> void:
 	var instance = ASTEROID.instantiate()
 
@@ -60,9 +60,11 @@ func spawn_asteroid() -> void:
 	instance.set_rotation(rot)
 	add_child(instance)
 
+
 #####################
 #  Signal Handlers  #
 #####################
+
 
 # Spawn an asteroid on the edge of the viewport
 func _on_timer_timeout() -> void:
