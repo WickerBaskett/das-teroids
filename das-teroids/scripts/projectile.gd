@@ -16,4 +16,3 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("hit"):
 		area.hit()
 		call_deferred("queue_free")
-	

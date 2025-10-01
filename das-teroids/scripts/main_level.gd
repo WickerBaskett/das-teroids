@@ -5,12 +5,15 @@ extends Node
 @onready var asteroid_spawner: Node2D = $AsteroidSpawner
 @onready var valid_space: CollisionShape2D = $ValidSpace/CollisionShape2D
 
+
 func _ready() -> void:
 	get_viewport().connect("size_changed", _on_viewport_size_change)
+
 
 #####################
 #  Signal Handlers  #
 #####################
+
 
 # Handles player death
 func _on_player_death() -> void:
@@ -18,6 +21,7 @@ func _on_player_death() -> void:
 	score_timer.stop()
 	game_over.size = get_viewport().size
 	game_over.visible = true
+
 
 func _on_viewport_size_change() -> void:
 	print("Resizing valid space")
