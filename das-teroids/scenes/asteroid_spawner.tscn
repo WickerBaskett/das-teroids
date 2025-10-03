@@ -20,7 +20,7 @@ autostart = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yafkd")
-initial_state = NodePath("IncreaseDifficulty")
+initial_state = NodePath("Idle")
 
 [node name="Spawning" type="Node" parent="StateMachine"]
 script = ExtResource("3_ju0s6")
