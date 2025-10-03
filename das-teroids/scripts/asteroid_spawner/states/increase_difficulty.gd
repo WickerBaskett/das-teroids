@@ -15,14 +15,3 @@ func enter() -> void:
 	difficulty_timer.start()
 	
 	emit_signal("transition", self, "idle")
-
-func exit() -> void:
-	pass
-
-
-func physics_update(delta: float) -> void:
-	pass
-
-
-func process_update(delta: float) -> void:
-	pass

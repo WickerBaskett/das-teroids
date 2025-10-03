@@ -53,12 +53,3 @@ func enter() -> void:
 	spawn_timer.start()
 	
 	emit_signal("transition", self, "idle")
-	
-func exit() -> void:
-	pass
-
-func physics_update(_delta) -> void:
-	pass
-
-func process_update(_delta) -> void:
-	pass 
