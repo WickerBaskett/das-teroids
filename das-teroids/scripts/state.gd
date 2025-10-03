@@ -1,11 +1,14 @@
 extends Node
+class_name State
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func enter() -> void:
 	pass
+
+func exit() -> void:
+	pass
+
+func physics_update() -> void:
+	pass
+
+func process_update() -> void:
+	pass 
