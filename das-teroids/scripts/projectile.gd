@@ -15,4 +15,4 @@ func _on_area_entered(area: Area2D) -> void:
 	print("Proj hit area...")
 	if area.has_method("hit"):
 		area.hit()
-	call_deferred("queue_free")
+		call_deferred("queue_free")
