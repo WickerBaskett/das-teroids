@@ -4,8 +4,10 @@ const SPEED: float = 1000.0
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
+
 func _ready() -> void:
-	sprite_2d.play("default");
+	sprite_2d.play("default")
+
 
 func _process(delta: float) -> void:
 	var rotated_speed = Vector2(

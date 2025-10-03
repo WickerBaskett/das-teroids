@@ -1,12 +1,12 @@
 extends Node2D
 
-# @export allows us to modify this value in the editor
-@export var speed: float = 50.0
 const A_E = preload("uid://w5th50kqan0q")
 const A_HAMPTER = preload("uid://du6q5vtlbxb68")
 const A_J = preload("uid://c3pec6ff8dt44")
 const A_JEN = preload("uid://bihwelms66yro")
-#const Asteroid = preload("uid://cqdbsi26c0obg")
+
+# @export allows us to modify this value in the editor
+@export var speed: float = 50.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 			sprite_2d.texture = A_J
 		3:
 			sprite_2d.texture = A_JEN
-	
+
 	# Randomize asteroid speed in range [0.5 .. 5.5]
 	speed *= randf() + 0.5
 
