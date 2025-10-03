@@ -1,9 +1,12 @@
 extends State
 
 const ASTEROID = preload("uid://cj6wbc1rkkw3t")
+
+@export var speed_mod: float
+
 @onready var asteroid_spawner: Node2D = $"../.."
 @onready var spawn_timer: Timer = $"../../SpawnTimer"
-@export var speed_mod: float
+
 
 func enter() -> void:
 	var instance = ASTEROID.instantiate()
@@ -12,7 +15,7 @@ func enter() -> void:
 	#  Setup asteroid position and rotation  #
 	##########################################
 	var view = asteroid_spawner.get_viewport_rect()
-	
+
 	# Start in the top left corner of the view
 	var pos = Vector2(view.position.x, view.position.y)
 
@@ -44,12 +47,12 @@ func enter() -> void:
 	instance.speed *= speed_mod
 	instance.position = pos
 	instance.set_rotation(rot)
-	
+
 	# This feels weird, asteroids maybe shouldnt be children of
 	# the spawning state? They are still grandchildren of the
 	# asteroid spawner but it feels a little weird
 	add_child(instance)
-	
+
 	spawn_timer.start()
-	
+
 	emit_signal("transition", self, "idle")

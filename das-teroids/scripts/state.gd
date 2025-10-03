@@ -1,9 +1,10 @@
-extends Node
 class_name State
-# This implementation is based heavily on work done in this video: 
+extends Node
+# This implementation is based heavily on work done in this video:
 #       https://www.youtube.com/watch?v=ow_Lum-Agbs
 
 signal transition(state, new_state_name)
+
 
 # Called when a state is first entered
 func enter() -> void:
@@ -16,10 +17,10 @@ func exit() -> void:
 
 
 # Called from physics_process(delta: float)
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
 
 # Called from process(delta: float)
-func process_update(delta: float) -> void:
-	pass 
+func process_update(_delta: float) -> void:
+	pass
