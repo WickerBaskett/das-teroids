@@ -2,9 +2,10 @@ extends State
 
 const ASTEROID = preload("uid://cj6wbc1rkkw3t")
 @onready var asteroid_spawner: Node2D = $"../.."
+@onready var spawn_timer: Timer = $"../../SpawnTimer"
+@export var speed_mod: float
 
 func enter() -> void:
-	print("Entered spawning state")
 	var instance = ASTEROID.instantiate()
 
 	##########################################
@@ -40,7 +41,7 @@ func enter() -> void:
 			rot += PI / 2
 
 	# Apply changes to instance'
-	instance.speed *= asteroid_spawner.speed_mod
+	instance.speed *= speed_mod
 	instance.position = pos
 	instance.set_rotation(rot)
 	
@@ -48,6 +49,8 @@ func enter() -> void:
 	# the spawning state? They are still grandchildren of the
 	# asteroid spawner but it feels a little weird
 	add_child(instance)
+	
+	spawn_timer.start()
 	
 	emit_signal("transition", self, "idle")
 	

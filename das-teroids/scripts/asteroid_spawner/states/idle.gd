@@ -1,21 +1,23 @@
 extends State
 
-@onready var asteroid_spawner: Node2D = $"../.."
-@export var spawn_time: float
-var elapsed: float
+@onready var difficulty_timer: Timer = $"../../DifficultyTimer"
+@onready var spawn_timer: Timer = $"../../SpawnTimer"
 
 func enter() -> void:
-	print("Entered idle")
-	elapsed = spawn_time
+	pass
+
 
 func exit() -> void:
 	pass
 	
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
-func process_update(delta: float) -> void:
-	if elapsed < 0:
+func process_update(_delta: float) -> void:
+	if spawn_timer.time_left == 0:
 		emit_signal("transition", self, "spawning")
 		return
-	elapsed -= delta
+	
+	if difficulty_timer.time_left == 0:
+		emit_signal("transition", self, "increasedifficulty")
+		

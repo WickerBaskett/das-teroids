@@ -5,14 +5,21 @@ class_name State
 
 signal transition(state, new_state_name)
 
+# Called when a state is first entered
 func enter() -> void:
 	pass
 
+
+# Called when a state is exited
 func exit() -> void:
 	pass
 
+
+# Called from physics_process(delta: float)
 func physics_update(delta: float) -> void:
 	pass
 
+
+# Called from process(delta: float)
 func process_update(delta: float) -> void:
 	pass 
