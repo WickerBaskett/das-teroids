@@ -49,11 +49,13 @@ func enter() -> void:
 	# asteroid spawner but it feels a little weird
 	add_child(instance)
 	
+	emit_signal("transition", self, "idle")
+	
 func exit() -> void:
 	pass
 
-func physics_update() -> void:
+func physics_update(_delta) -> void:
 	pass
 
-func process_update() -> void:
+func process_update(_delta) -> void:
 	pass 

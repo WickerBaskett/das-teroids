@@ -3,7 +3,7 @@ class_name State
 # This implementation is based heavily on work done in this video: 
 #       https://www.youtube.com/watch?v=ow_Lum-Agbs
 
-signal transition(new, old)
+signal transition(state, new_state_name)
 
 func enter() -> void:
 	pass
@@ -11,8 +11,8 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func physics_update() -> void:
+func physics_update(delta: float) -> void:
 	pass
 
-func process_update() -> void:
+func process_update(delta: float) -> void:
 	pass 

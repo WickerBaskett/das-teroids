@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://p5yknyxamdw1" path="res://scripts/asteroid_spawner/asteroid_spawner.gd" id="1_l5w2k"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/asteroid_spawner/state_machine.gd" id="2_yafkd"]
 [ext_resource type="Script" uid="uid://nn3bo8kcne6g" path="res://scripts/asteroid_spawner/states/spawning.gd" id="3_ju0s6"]
-[ext_resource type="Script" uid="uid://3q4dlwpttwl1" path="res://scripts/asteroid_spawner/states/waiting.gd" id="4_2a0l6"]
+[ext_resource type="Script" uid="uid://3q4dlwpttwl1" path="res://scripts/asteroid_spawner/states/idle.gd" id="4_2a0l6"]
 
 [node name="AsteroidSpawner" type="Node2D"]
 script = ExtResource("1_l5w2k")
@@ -23,9 +23,9 @@ initial_state = NodePath("Spawning")
 [node name="Spawning" type="Node" parent="StateMachine"]
 script = ExtResource("3_ju0s6")
 
-[node name="Waiting" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_2a0l6")
-wait_time = null
+spawn_time = 1.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="BumpDifficutly" to="." method="_on_bump_difficutly_timeout"]
