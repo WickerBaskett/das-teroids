@@ -1,9 +1,10 @@
 extends Node
 
+var game_over_flag: bool = false
+
 @onready var game_over: Label = $GameOver
 @onready var valid_space: CollisionShape2D = $ValidSpace/CollisionShape2D
 
-var game_over_flag: bool = false
 
 func _ready() -> void:
 	SignalBus.connect("player_death", _on_player_death)
@@ -18,6 +19,7 @@ func _ready() -> void:
 # Handles player death
 func _on_player_death() -> void:
 	game_over_flag = true
+
 
 func _on_viewport_size_change() -> void:
 	var view_rect = valid_space.get_viewport_rect()

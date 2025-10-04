@@ -6,10 +6,7 @@ extends State
 
 # Called from physics_process(delta: float)
 func physics_update(_delta: float) -> void:
-	if (
-		Input.get_axis("left", "right") != 0
-		or Input.get_axis("up", "down") != 0
-	):
+	if Input.get_axis("left", "right") != 0 or Input.get_axis("up", "down") != 0:
 		emit_signal("transition", self, "moving")
 
 
