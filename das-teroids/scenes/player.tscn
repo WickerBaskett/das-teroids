@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://drxv3m3tji3j3"]
 
-[ext_resource type="Texture2D" uid="uid://cifmsq8pxhmkk" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://djn4hg22uxgbu" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://caay2221cmdu4" path="res://assets/sprites/player/ship_neutral.png" id="2_g2els"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(90, 90)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_g2els"]
+points = PackedVector2Array(-1.5, -31.5, 26.5, 29.5, -26.5, 25.5)
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -14,10 +14,11 @@ script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_3vyb7")
+texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g2els")
+position = Vector2(0.5, -6.5)
+shape = SubResource("ConvexPolygonShape2D_g2els")
 
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 0.25
