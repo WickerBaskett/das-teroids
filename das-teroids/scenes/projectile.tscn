@@ -1,10 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddoufa6s84qes"]
+[gd_scene load_steps=7 format=3 uid="uid://ddoufa6s84qes"]
 
-[ext_resource type="Texture2D" uid="uid://bdcwyvflffud8" path="res://assets/projectile.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://52dddy60eoa3" path="res://scripts/projectile.gd" id="1_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://cj4jpgdssnx6g" path="res://assets/sprites/projectile/projectile_1.png" id="2_6q2a6"]
+[ext_resource type="Texture2D" uid="uid://cfssubwb4meux" path="res://assets/sprites/projectile/projectile_2.png" id="3_byeak"]
+[ext_resource type="Texture2D" uid="uid://dhbxvgd5troly" path="res://assets/sprites/projectile/projectile_3.png" id="4_jxwu6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8fcr"]
 radius = 32.01562
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7nm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6q2a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_byeak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jxwu6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(0.25, 0.25)
@@ -13,7 +32,10 @@ script = ExtResource("1_q3m7n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_c8fcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_c8fcr")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.9073486e-06, -3.3881318e-21)
+scale = Vector2(4.4, 3.866667)
+sprite_frames = SubResource("SpriteFrames_w7nm8")
+frame_progress = 0.9717746
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

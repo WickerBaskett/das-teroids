@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdcwyvflffud8"
-path="res://.godot/imported/projectile.png-197bcbc76cb11b0c658014dfea4806d1.ctex"
+uid="uid://du6q5vtlbxb68"
+path="res://.godot/imported/a_hampter.png-feceeea54b8f5f491f133208ef80f197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-197bcbc76cb11b0c658014dfea4806d1.ctex"]
+source_file="res://assets/sprites/asteroids/a_hampter.png"
+dest_files=["res://.godot/imported/a_hampter.png-feceeea54b8f5f491f133208ef80f197.ctex"]
 
 [params]
 
