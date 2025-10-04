@@ -7,6 +7,7 @@ extends Node
 
 
 func _ready() -> void:
+	SignalBus.connect("player_death", _on_player_death)
 	get_viewport().connect("size_changed", _on_viewport_size_change)
 
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 # Handles player death
 func _on_player_death() -> void:
+	print("Player has died in main level")
 	asteroid_spawner.call_deferred("queue_free")
 	score_timer.stop()
 	game_over.size = get_viewport().size

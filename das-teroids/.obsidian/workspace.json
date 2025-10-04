@@ -1,22 +1,20 @@
 {
   "main": {
-    "id": "8ff7c32981b72ebf",
+    "id": "34eabce7eb89d984",
     "type": "split",
     "children": [
       {
-        "id": "09f365bab81bf111",
+        "id": "c6632f9494b519b7",
         "type": "tabs",
         "children": [
           {
-            "id": "3b9847edfa9fbdbf",
+            "id": "d0e4823aeaea6a59",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "state.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "state.excalidraw"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -25,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "77ae36342c4efa6d",
+    "id": "57e19878d29ada49",
     "type": "split",
     "children": [
       {
-        "id": "d1266bd4c35ef97c",
+        "id": "52b9db8d18c572f1",
         "type": "tabs",
         "children": [
           {
-            "id": "0c95a32c71bdbaf7",
+            "id": "90c1b74e165e2d21",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -46,7 +44,7 @@
             }
           },
           {
-            "id": "c4af11a7bbfef856",
+            "id": "b4a9d3f57002fbc4",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -63,7 +61,7 @@
             }
           },
           {
-            "id": "b764533da4a0156c",
+            "id": "0a376e51affdb9de",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -79,15 +77,15 @@
     "width": 300
   },
   "right": {
-    "id": "1d85874402467c01",
+    "id": "10531ddfde65c5bd",
     "type": "split",
     "children": [
       {
-        "id": "ebda6b412d61f6e8",
+        "id": "845a867cabff6789",
         "type": "tabs",
         "children": [
           {
-            "id": "3ec92ddbf643378d",
+            "id": "cd861dbdbc4eaea4",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -105,7 +103,7 @@
             }
           },
           {
-            "id": "9fc53e9e617f2c18",
+            "id": "9a84306de3ef0c54",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -118,7 +116,7 @@
             }
           },
           {
-            "id": "e3e9a1917542f181",
+            "id": "982270fa1adf7044",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,18 +131,17 @@
             }
           },
           {
-            "id": "e3b321d104db9273",
+            "id": "a63d33aeb8e3dad1",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline"
             }
           }
         ]
@@ -162,16 +159,9 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "bases:Create new base": false
     }
   },
-  "active": "3b9847edfa9fbdbf",
-  "lastOpenFiles": [
-    "architecture.excalidraw.md",
-    "state.excalidraw.md",
-    "test.md",
-    "create a link.md",
-    "Welcome.md"
-  ]
+  "active": "d0e4823aeaea6a59",
+  "lastOpenFiles": []
 }

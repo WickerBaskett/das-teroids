@@ -37,5 +37,4 @@ position = Vector2(576, 326.5)
 shape = SubResource("RectangleShape2D_qmak7")
 debug_color = Color(0, 0.6, 0.69803923, 0.043137256)
 
-[connection signal="dead" from="Player" to="." method="_on_player_death"]
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
