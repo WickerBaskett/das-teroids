@@ -1,16 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjsgle643hohi"]
+[gd_scene load_steps=5 format=3 uid="uid://cjsgle643hohi"]
 
-[ext_resource type="Script" uid="uid://p5yknyxamdw1" path="res://scripts/asteroid_spawner.gd" id="1_l5w2k"]
+[ext_resource type="Script" uid="uid://nn3bo8kcne6g" path="res://scripts/asteroid_spawner/spawning.gd" id="2_2a0l6"]
+[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="2_yafkd"]
+[ext_resource type="Script" uid="uid://3q4dlwpttwl1" path="res://scripts/asteroid_spawner/idle.gd" id="3_s3ts7"]
+[ext_resource type="Script" uid="uid://c7xdfur21cyjg" path="res://scripts/asteroid_spawner/increase_difficulty.gd" id="4_h774v"]
 
 [node name="AsteroidSpawner" type="Node2D"]
-script = ExtResource("1_l5w2k")
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
-[node name="BumpDifficutly" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_yafkd")
+initial_state = NodePath("Idle")
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="BumpDifficutly" to="." method="_on_bump_difficutly_timeout"]
+[node name="Spawning" type="Node" parent="StateMachine"]
+script = ExtResource("2_2a0l6")
+speed_mod = 1.0
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_s3ts7")
+
+[node name="IncreaseDifficulty" type="Node" parent="StateMachine"]
+script = ExtResource("4_h774v")
+spawn_mod = 0.8
