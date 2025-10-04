@@ -7,15 +7,6 @@ extends State
 const SPEED_SCALE = 10.0  # Scales the linear speed of player
 const ROTATION_SPEED_SCALE = 0.1  # Scales the rotation speed of player
 
-# Called when a state is first entered
-func enter() -> void:
-	print("Entered Moving")
-
-
-# Called when a state is exited
-func exit() -> void:
-	pass
-
 
 # Called from physics_process(delta: float)
 func physics_update(_delta: float) -> void:
@@ -30,7 +21,6 @@ func physics_update(_delta: float) -> void:
 
 	# Wrap player position around current viewport size
 	player.position = player.position.posmodv(player.view_size)
-	
 
 
 # Called from process(delta: float)

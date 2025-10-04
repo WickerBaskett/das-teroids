@@ -1,10 +1,9 @@
 extends Node
 
-@onready var score_timer: Timer = $ScoreKeeper/ScoreTimer
 @onready var game_over: Label = $GameOver
-@onready var asteroid_spawner: Node2D = $AsteroidSpawner
 @onready var valid_space: CollisionShape2D = $ValidSpace/CollisionShape2D
 
+var game_over_flag: bool = false
 
 func _ready() -> void:
 	SignalBus.connect("player_death", _on_player_death)
@@ -18,12 +17,7 @@ func _ready() -> void:
 
 # Handles player death
 func _on_player_death() -> void:
-	print("Player has died in main level")
-	asteroid_spawner.call_deferred("queue_free")
-	score_timer.stop()
-	game_over.size = get_viewport().size
-	game_over.visible = true
-
+	game_over_flag = true
 
 func _on_viewport_size_change() -> void:
 	var view_rect = valid_space.get_viewport_rect()

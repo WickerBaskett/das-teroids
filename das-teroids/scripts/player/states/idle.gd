@@ -4,16 +4,6 @@ extends State
 @onready var player: RigidBody2D = $"../.."
 
 
-# Called when a state is first entered
-func enter() -> void:
-	print("Entered Idle")
-
-
-# Called when a state is exited
-func exit() -> void:
-	pass
-
-
 # Called from physics_process(delta: float)
 func physics_update(_delta: float) -> void:
 	if (

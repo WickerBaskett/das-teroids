@@ -46,18 +46,3 @@ func enter() -> void:
 		emit_signal("transition", self, "moving")
 	
 	emit_signal("transition", self, "idle")
-
-
-# Called when a state is exited
-func exit() -> void:
-	pass
-
-
-# Called from physics_process(delta: float)
-func physics_update(_delta: float) -> void:
-	pass
-
-
-# Called from process(delta: float)
-func process_update(_delta: float) -> void:
-	pass
