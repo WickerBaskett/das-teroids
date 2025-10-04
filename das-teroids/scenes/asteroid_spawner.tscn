@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtupna0ajt487"]
+[gd_scene load_steps=5 format=3 uid="uid://dtupna0ajt487"]
 
-[ext_resource type="Script" uid="uid://p5yknyxamdw1" path="res://scripts/asteroid_spawner/asteroid_spawner.gd" id="1_l5w2k"]
-[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/asteroid_spawner/state_machine.gd" id="2_yafkd"]
+[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="2_yafkd"]
 [ext_resource type="Script" uid="uid://nn3bo8kcne6g" path="res://scripts/asteroid_spawner/states/spawning.gd" id="3_ju0s6"]
 [ext_resource type="Script" uid="uid://3q4dlwpttwl1" path="res://scripts/asteroid_spawner/states/idle.gd" id="4_2a0l6"]
 [ext_resource type="Script" uid="uid://c7xdfur21cyjg" path="res://scripts/asteroid_spawner/states/increase_difficulty.gd" id="5_s3ts7"]
 
 [node name="AsteroidSpawner" type="Node2D"]
-script = ExtResource("1_l5w2k")
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 5.0
