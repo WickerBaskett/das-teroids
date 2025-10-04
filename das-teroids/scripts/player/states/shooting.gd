@@ -9,7 +9,7 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Shooting")
-	
+
 	attack_cooldown.start()
 
 	# Create projectile
@@ -31,18 +31,15 @@ func enter() -> void:
 	)
 
 	proj.position += rotated_pos
-	
+
 	##########################
 	#  Determine Next State  #
 	##########################
-	
+
 	if player.dead:
 		emit_signal("transition", self, "dead")
-	
-	if (
-		Input.get_axis("left", "right") != 0
-		or Input.get_axis("up", "down") != 0
-	):
+
+	if Input.get_axis("left", "right") != 0 or Input.get_axis("up", "down") != 0:
 		emit_signal("transition", self, "moving")
-	
+
 	emit_signal("transition", self, "idle")
