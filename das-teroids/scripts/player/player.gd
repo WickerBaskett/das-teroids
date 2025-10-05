@@ -1,10 +1,14 @@
 extends RigidBody2D
 
 var dead: bool = false
-@onready var view_size = get_viewport_rect().size
+@onready var view_size: Vector2 = get_viewport_rect().size
+const mag_size: int = 3
+var mag: int
 
 
 func _ready() -> void:
+	mag = mag_size
+	
 	# Set up signal handler for viewport size changing
 	var viewport = get_viewport()
 	viewport.connect("size_changed", _on_viewport_size_changed)

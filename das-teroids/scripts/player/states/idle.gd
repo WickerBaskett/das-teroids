@@ -1,5 +1,6 @@
 extends State
 
+@onready var reload_timer: Timer = %ReloadTimer
 @onready var attack_cooldown: Timer = $"../../AttackCooldown"
 @onready var player: RigidBody2D = $"../.."
 
@@ -14,6 +15,10 @@ func physics_update(_delta: float) -> void:
 func process_update(_delta: float) -> void:
 	if player.dead:
 		emit_signal("transition", self, "dead")
+	
+	if reload_timer.time_left == 0 and player.mag < player.mag_size:
+		emit_signal("transition", self, "reload")
+		
 
-	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0:
+	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:
 		emit_signal("transition", self, "shooting")

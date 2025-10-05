@@ -1,15 +1,22 @@
 extends State
 
 const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
+@onready var reload_timer: Timer = %ReloadTimer
 @onready var attack_cooldown: Timer = %AttackCooldown
 @onready var player: RigidBody2D = $"../.."
 @onready var collision_polygon_2d: CollisionPolygon2D = $"../../CollisionPolygon2D"
 
 
+
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Shooting")
-
+	
+	player.mag -= 1
+	
+	if reload_timer.is_stopped():
+		reload_timer.start()
+	
 	attack_cooldown.start()
 
 	# Create projectile
@@ -31,15 +38,5 @@ func enter() -> void:
 	)
 
 	proj.position += rotated_pos
-
-	##########################
-	#  Determine Next State  #
-	##########################
-
-	if player.dead:
-		emit_signal("transition", self, "dead")
-
-	if Input.get_axis("left", "right") != 0 or Input.get_axis("up", "down") != 0:
-		emit_signal("transition", self, "moving")
 
 	emit_signal("transition", self, "idle")
