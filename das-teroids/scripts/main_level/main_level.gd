@@ -2,7 +2,6 @@ extends Node
 
 var game_over_flag: bool = false
 
-@onready var game_over: Label = $GameOver
 @onready var valid_space: CollisionShape2D = $ValidSpace/CollisionShape2D
 
 
