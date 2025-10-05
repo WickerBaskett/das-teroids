@@ -53,19 +53,19 @@ label_settings = SubResource("LabelSettings_wm3ai")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Magizine" type="Node" parent="."]
+[node name="Magazine" type="Node" parent="."]
 
-[node name="bullet1" type="AnimatedSprite2D" parent="Magizine"]
+[node name="bullet1" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(28, 101)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
 frame_progress = 0.80657756
 
-[node name="bullet2" type="AnimatedSprite2D" parent="Magizine"]
+[node name="bullet2" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(57, 101)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
 frame_progress = 0.16722794
 
-[node name="bullet3" type="AnimatedSprite2D" parent="Magizine"]
+[node name="bullet3" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(85, 102)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
 frame_progress = 0.48735872
