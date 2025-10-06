@@ -1,6 +1,6 @@
 extends State
 
-@export var spawn_mod: float
+@export var spawn_mod: float = 0.8
 
 @onready var difficulty_timer: Timer = $"../../DifficultyTimer"
 @onready var spawn_timer: Timer = $"../../SpawnTimer"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjsgle643hohi"]
+[gd_scene load_steps=5 format=3 uid="uid://dtupna0ajt487"]
 
 [ext_resource type="Script" uid="uid://nn3bo8kcne6g" path="res://scripts/asteroid_spawner/spawning.gd" id="2_2a0l6"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="2_yafkd"]
@@ -22,11 +22,9 @@ initial_state = NodePath("Idle")
 
 [node name="Spawning" type="Node" parent="StateMachine"]
 script = ExtResource("2_2a0l6")
-speed_mod = 1.0
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_s3ts7")
 
 [node name="IncreaseDifficulty" type="Node" parent="StateMachine"]
 script = ExtResource("4_h774v")
-spawn_mod = 0.8
