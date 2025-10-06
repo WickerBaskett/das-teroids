@@ -1,6 +1,6 @@
 extends State
 
-@onready var magizine: Node = $"../../Magizine"
+@onready var magazine: Node = $"../../Magazine"
 @onready var ui: Control = $"../.."
 @onready var reload_progress: ProgressBar = %ReloadProgress
 
@@ -14,7 +14,7 @@ var last_mag: int = 3
 func enter() -> void:
 	# Set up player magizine ui
 	var pos = INITIAL_MAG_POS
-	for child in magizine.get_children():
+	for child in magazine.get_children():
 		bullets.append(child)
 		child.position = pos
 		pos.x += PROJECTILE_X_SIZE * 1.25
