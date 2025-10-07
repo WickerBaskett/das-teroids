@@ -1,16 +1,70 @@
-[gd_scene load_steps=12 format=3 uid="uid://drxv3m3tji3j3"]
+[gd_scene load_steps=18 format=3 uid="uid://drxv3m3tji3j3"]
 
 [ext_resource type="Script" uid="uid://djn4hg22uxgbu" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://caay2221cmdu4" path="res://assets/sprites/player/ship_neutral.png" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://bnjei0u13uih7" path="res://assets/sprites/player/shield.png" id="3_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://dysncgaxqp6db" path="res://assets/sprites/player/shield.png" id="3_d2wvv"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://xhmfab0lgmeh" path="res://scripts/player/states/idle.gd" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bnjei0u13uih7" path="res://assets/sprites/player/shield_break_0.png" id="4_a8ls1"]
 [ext_resource type="Script" uid="uid://bxto07g1w4ytx" path="res://scripts/player/states/moving.gd" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://b40jwglbhb751" path="res://assets/sprites/player/shield_break_1.png" id="5_qfm1y"]
 [ext_resource type="Script" uid="uid://cxw05vqpnu27s" path="res://scripts/player/states/shooting.gd" id="5_smehm"]
+[ext_resource type="Texture2D" uid="uid://c7yrnrgad42x1" path="res://assets/sprites/player/shield_break_2.png" id="6_fulsm"]
 [ext_resource type="Script" uid="uid://bu74jl14q8mdw" path="res://scripts/player/states/dead.gd" id="6_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://0lpdlo70vhls" path="res://assets/sprites/player/shield_break_3.png" id="7_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://dieivu8283gnm" path="res://assets/sprites/player/shield_break_4.png" id="8_60mlk"]
 [ext_resource type="Script" uid="uid://dt2pfwdk7ot0o" path="res://scripts/player/states/reload.gd" id="8_smehm"]
 [ext_resource type="Script" uid="uid://dgviejgjfe0yo" path="res://scripts/player/states/damaged.gd" id="9_ur7pv"]
 [ext_resource type="Script" uid="uid://x3yjj8kc1wu4" path="res://scripts/player/states/ResetShield.gd" id="10_y4r1p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4ail"]
+animations = [{
+"frames": [{
+"duration": 0.01,
+"texture": ExtResource("3_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_60mlk")
+}],
+"loop": false,
+"name": &"break",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_60mlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d2wvv")
+}],
+"loop": false,
+"name": &"regen",
+"speed": 7.0
+}]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -23,11 +77,14 @@ position = Vector2(-2, -6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_g2els")
 
-[node name="Shield" type="Sprite2D" parent="."]
+[node name="Shield" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-3.9999998, -9.999999)
 scale = Vector2(0.445, 0.465)
-texture = ExtResource("3_d2wvv")
+sprite_frames = SubResource("SpriteFrames_i4ail")
+animation = &"regen"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.9999995, -5.9999986)
