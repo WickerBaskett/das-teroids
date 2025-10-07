@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://drxv3m3tji3j3"]
+[gd_scene load_steps=12 format=3 uid="uid://drxv3m3tji3j3"]
 
 [ext_resource type="Script" uid="uid://djn4hg22uxgbu" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://caay2221cmdu4" path="res://assets/sprites/player/ship_neutral.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bnjei0u13uih7" path="res://assets/sprites/player/shield.png" id="3_d2wvv"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://xhmfab0lgmeh" path="res://scripts/player/states/idle.gd" id="3_tuyoq"]
 [ext_resource type="Script" uid="uid://bxto07g1w4ytx" path="res://scripts/player/states/moving.gd" id="4_fjrip"]
@@ -21,6 +22,12 @@ script = ExtResource("1_g2els")
 position = Vector2(-2, -6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_g2els")
+
+[node name="Shield" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3.9999998, -9.999999)
+scale = Vector2(0.445, 0.465)
+texture = ExtResource("3_d2wvv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.9999995, -5.9999986)

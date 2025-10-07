@@ -2,18 +2,16 @@ extends State
 
 @onready var player: RigidBody2D = $"../.."
 @onready var shield_recharge: Timer = %ShieldRecharge
+@onready var shield: Sprite2D = %Shield
 # Time in Seconds before player can be hit again after shield breaks
 const shield_iframes: float = 0.25 
 
 # Called when a state is first entered
 func enter() -> void:
-	print("Enter damaged")
-	print(shield_recharge.time_left)
-	print(shield_recharge.time_left - shield_iframes)
-	
 	if player.shield:
 		player.shield = false
 		shield_recharge.start()
+		shield.visible = false
 
 	if shield_recharge.time_left < (shield_recharge.wait_time - shield_iframes):
 		emit_signal("transition", self, "dead")
