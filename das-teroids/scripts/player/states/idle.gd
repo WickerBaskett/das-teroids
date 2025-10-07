@@ -10,6 +10,9 @@ extends State
 func physics_update(_delta: float) -> void:
 	if Input.get_axis("left", "right") != 0 or Input.get_axis("up", "down") != 0:
 		emit_signal("transition", self, "moving")
+	
+		# Wrap player position around current viewport size
+	player.position = player.position.posmodv(player.view_size)
 
 
 # Called from process(delta: float)
