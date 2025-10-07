@@ -12,7 +12,7 @@ func physics_update(_delta: float) -> void:
 	var player_rotation := Input.get_axis("ui_left", "ui_right")
 	var y_direction := Input.get_axis("ui_up", "ui_down")
 
-	if player_rotation == 0 or y_direction == 0:
+	if player_rotation == 0 and y_direction == 0:
 		emit_signal("transition", self, "idle")
 
 	player.angular_velocity += player_rotation * ROTATION_SPEED_SCALE
@@ -24,8 +24,8 @@ func physics_update(_delta: float) -> void:
 
 # Called from process(delta: float)
 func process_update(_delta: float) -> void:
-	if player.dead:
-		emit_signal("transition", self, "dead")
+	if player.collided:
+		emit_signal("transition", self, "damaged")
 
 	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:
 		emit_signal("transition", self, "shooting")

@@ -45,3 +45,4 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Body Hit Asteroid...")
 	if body.has_method("hit"):
 		body.hit()
+		call_deferred("queue_free")
