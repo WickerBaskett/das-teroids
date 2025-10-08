@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=8 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://cjsgle643hohi" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
 [ext_resource type="PackedScene" uid="uid://bfjxjanc6tx24" path="res://scenes/score_keeper.tscn" id="3_6we3w"]
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level.gd" id="4_qmak7"]
+[ext_resource type="Texture2D" uid="uid://betumflnsulr7" path="res://assets/sprites/backgrounds/background.png" id="5_8ra5a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qmak7"]
 font_size = 144
@@ -36,6 +37,12 @@ vertical_alignment = 1
 position = Vector2(576, 326.5)
 shape = SubResource("RectangleShape2D_qmak7")
 debug_color = Color(0, 0.6, 0.69803923, 0.043137256)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_8ra5a")
 
 [connection signal="dead" from="Player" to="." method="_on_player_death"]
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
