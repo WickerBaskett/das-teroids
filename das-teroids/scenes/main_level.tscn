@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=10 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://cjsgle643hohi" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
 [ext_resource type="PackedScene" uid="uid://bfjxjanc6tx24" path="res://scenes/score_keeper.tscn" id="3_6we3w"]
-[ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level.gd" id="4_qmak7"]
+[ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
+[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
+[ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
+[ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qmak7"]
 font_size = 144
@@ -18,10 +21,12 @@ script = ExtResource("4_qmak7")
 position = Vector2(396, 399)
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_6we3w")]
+unique_name_in_owner = true
 
 [node name="ScoreKeeper" parent="." instance=ExtResource("3_6we3w")]
 
 [node name="GameOver" type="Label" parent="."]
+unique_name_in_owner = true
 visible = false
 offset_right = 1154.0
 offset_bottom = 648.0
@@ -37,5 +42,14 @@ position = Vector2(576, 326.5)
 shape = SubResource("RectangleShape2D_qmak7")
 debug_color = Color(0, 0.6, 0.69803923, 0.043137256)
 
-[connection signal="dead" from="Player" to="." method="_on_player_death"]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_8ra5a")
+initial_state = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="StateMachine"]
+script = ExtResource("6_u2c82")
+
+[node name="GameOver" type="Node" parent="StateMachine"]
+script = ExtResource("7_k5pu3")
+
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
