@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhm28ne3u5nwa"]
 
-[ext_resource type="PackedScene" uid="uid://cjsgle643hohi" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
+[ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
-[ext_resource type="PackedScene" uid="uid://c78ycjg46dfr6" path="res://scenes/ui.tscn" id="4_u2c82"]
+[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui.tscn" id="4_u2c82"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
 [ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
