@@ -15,9 +15,16 @@ run/main_scene="uid://dso7epbsx2cib"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+
+[display]
+
+window/size/viewport_width=1900
+window/size/viewport_height=890
+
 [autoload]
 
 SignalBus="*res://scripts/signal_bus.gd"
+
 
 [input]
 
