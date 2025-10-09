@@ -9,6 +9,9 @@ var reload_time: float = 0
 var collided: bool = false
 var shield: int = true
 
+# Flag to detect collection of jena juggernaut power up
+var added_shield: bool = false
+
 
 func _ready() -> void:
 	mag = mag_size

@@ -42,6 +42,15 @@ script = ExtResource("6_u2c82")
 script = ExtResource("7_k5pu3")
 
 [node name="JenaJuggernaut" parent="." instance=ExtResource("8_h35hl")]
-position = Vector2(574, 325)
+position = Vector2(838, 408)
+
+[node name="JenaJuggernaut2" parent="." instance=ExtResource("8_h35hl")]
+position = Vector2(553, 176)
+
+[node name="JenaJuggernaut3" parent="." instance=ExtResource("8_h35hl")]
+position = Vector2(400, 310)
+
+[node name="JenaJuggernaut4" parent="." instance=ExtResource("8_h35hl")]
+position = Vector2(763, 212)
 
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
