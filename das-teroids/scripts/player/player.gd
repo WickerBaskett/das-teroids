@@ -2,14 +2,27 @@ extends RigidBody2D
 
 
 @onready var view_size: Vector2 = get_viewport_rect().size
+
+######################
+#  Reload Variables  #
+######################
+
 @onready var reload_timer: Timer = %ReloadTimer # Used in the UI
 const mag_size: int = 3
 var mag: int
-var reload_time: float = 0
-var collided: bool = false
+#var reload_time: float = 0
+
+# Number of shields the player currently has
 var shield: int = true
 
-# Flag to detect collection of jena juggernaut power up
+###########
+#  Flags  #
+###########
+
+# Set when the player is hit
+var collided: bool = false
+
+# Set on collection of Jena Juggernaut Power Up
 var added_shield: bool = false
 
 

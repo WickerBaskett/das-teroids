@@ -9,11 +9,15 @@ extends State
 # Called when a state is first entered
 # Precondition: 0 <= player.shield <= 2
 func enter() -> void:
-	print("Entered Reset Shield")
-	print(shields.get_children()[player.shield - 1])
-	shields.get_children()[player.shield].play("regen")
-	player.shield += 1
+	if player.added_shield and player.shield == 0:
+		restore_shield()
+
+	restore_shield()
 
 	player.added_shield = false
 
 	emit_signal("transition", self, "idle")
+
+func restore_shield() -> void:
+	shields.get_children()[player.shield].play("regen")
+	player.shield += 1

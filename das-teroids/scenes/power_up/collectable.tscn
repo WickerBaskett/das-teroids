@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://crncbk07b3ypf"]
+[gd_scene load_steps=3 format=3 uid="uid://ii5og8rqlm4i"]
 
 [ext_resource type="Script" uid="uid://1gwr6184l3qd" path="res://scripts/power_up/collectable.gd" id="1_ti8a4"]
 
