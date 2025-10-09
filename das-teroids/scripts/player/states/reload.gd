@@ -8,7 +8,7 @@ extends State
 func enter() -> void:
 	player.mag += 1
 	
-	if player.mag < player.mag_size:
+	if player.mag < player.MAG_SIZE:
 		reload_timer.start()
 	
 	emit_signal("transition", self, "idle")

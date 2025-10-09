@@ -11,6 +11,12 @@ const shield_iframes: float = 0.25
 
 # Called when a state is first entered
 func enter() -> void:
+	print("Entered Damaged")
+	if player.invincible:
+		player.collided = false
+		emit_signal("transition", self, "idle")
+		return
+
 	if player.shield > 0:
 		player.shield -= 1
 		shield_recharge.start()

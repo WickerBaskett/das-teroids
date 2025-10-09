@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
 [ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
-[ext_resource type="PackedScene" uid="uid://c6nx8u3qyeead" path="res://scenes/power_up/jena_juggernaut.tscn" id="8_h35hl"]
+[ext_resource type="PackedScene" uid="uid://botemo7ekakif" path="res://scenes/power_up/chappel_chomp.tscn" id="8_h35hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
 size = Vector2(1154, 649)
@@ -41,13 +41,7 @@ script = ExtResource("6_u2c82")
 [node name="GameOver" type="Node" parent="StateMachine"]
 script = ExtResource("7_k5pu3")
 
-[node name="JenaJuggernaut" parent="." instance=ExtResource("8_h35hl")]
-position = Vector2(247, 237)
-
-[node name="JenaJuggernaut2" parent="." instance=ExtResource("8_h35hl")]
-position = Vector2(585, 233)
-
-[node name="JenaJuggernaut3" parent="." instance=ExtResource("8_h35hl")]
-position = Vector2(403, 305)
+[node name="ChappelChomp" parent="." instance=ExtResource("8_h35hl")]
+position = Vector2(386, 282)
 
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]

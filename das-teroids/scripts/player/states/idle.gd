@@ -23,7 +23,7 @@ func process_update(_delta: float) -> void:
 	if (shield_recharge.time_left == 0 and player.shield == 0) or player.added_shield:
 		emit_signal("transition", self, "resetshield")
 
-	if reload_timer.time_left == 0 and player.mag < player.mag_size:
+	if reload_timer.time_left == 0 and player.mag < player.MAG_SIZE:
 		emit_signal("transition", self, "reload")
 
 	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:

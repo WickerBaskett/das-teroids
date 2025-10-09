@@ -1,16 +1,20 @@
 extends RigidBody2D
 
-
+# Used to determine when to screen wrap
 @onready var view_size: Vector2 = get_viewport_rect().size
 
-######################
-#  Reload Variables  #
-######################
+# This is used in the UI
+@onready var reload_timer: Timer = %ReloadTimer 
 
-@onready var reload_timer: Timer = %ReloadTimer # Used in the UI
-const mag_size: int = 3
+#######################
+#  Player Statistics  #
+#######################
+
+# Max number of bullets the player can have
+const MAG_SIZE: int = 3
+
+# Number of bullets the player currently has
 var mag: int
-#var reload_time: float = 0
 
 # Number of shields the player currently has
 var shield: int = true
@@ -25,9 +29,15 @@ var collided: bool = false
 # Set on collection of Jena Juggernaut Power Up
 var added_shield: bool = false
 
+# Set on collection of Chappell Chomp Power Up
+var invincible: bool = false
+
+######################
+#  Player Functions  #
+######################
 
 func _ready() -> void:
-	mag = mag_size
+	mag = MAG_SIZE
 	
 	# Set up signal handler for viewport size changing
 	var viewport = get_viewport()
@@ -41,4 +51,5 @@ func hit() -> void:
 
 # Update view_size when the viewport changes size
 func _on_viewport_size_changed() -> void:
+	pass
 	view_size = get_viewport_rect().size

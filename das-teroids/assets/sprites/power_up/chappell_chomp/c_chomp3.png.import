@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxbesfi6c0otj"
-path="res://.godot/imported/chappell_chomp.png-0714791208ebc4c1e26a1440aacfd597.ctex"
+uid="uid://ct4msshdm6ej8"
+path="res://.godot/imported/c_chomp3.png-996cd71766e5c81e1b9a180fe41114da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/power_up/chappell_chomp.png"
-dest_files=["res://.godot/imported/chappell_chomp.png-0714791208ebc4c1e26a1440aacfd597.ctex"]
+source_file="res://assets/sprites/power_up/chappell_chomp/c_chomp3.png"
+dest_files=["res://.godot/imported/c_chomp3.png-996cd71766e5c81e1b9a180fe41114da.ctex"]
 
 [params]
 
