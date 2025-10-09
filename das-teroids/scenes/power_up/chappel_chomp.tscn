@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://botemo7ekakif"]
+
+[ext_resource type="Script" uid="uid://ptgpmei45ib8" path="res://scripts/power_up/chappell_chomp.gd" id="1_p8jo2"]
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/collectable.tscn" id="2_a78v2"]
+
+[node name="ChappelChomp" type="Node2D"]
+script = ExtResource("1_p8jo2")
+
+[node name="Collectable" parent="." instance=ExtResource("2_a78v2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

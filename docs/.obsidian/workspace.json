@@ -25,10 +25,10 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "state.excalidraw.md"
+                "file": "powerup.excalidraw.md"
               },
               "icon": "excalidraw-icon",
-              "title": "state.excalidraw"
+              "title": "powerup.excalidraw"
             }
           }
         ],
@@ -181,9 +181,9 @@
   },
   "active": "26775a7a0a4fe004",
   "lastOpenFiles": [
+    "state.excalidraw.md",
     "powerup.excalidraw.md",
     "architecture.excalidraw.md",
-    "state.excalidraw.md",
     "Untitled.base",
     "Untitled.md",
     "test.md",
