@@ -7,7 +7,7 @@ const mag_size: int = 3
 var mag: int
 var reload_time: float = 0
 var collided: bool = false
-var shield: bool = true
+var shield: int = true
 
 
 func _ready() -> void:

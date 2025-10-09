@@ -7,7 +7,7 @@ extends State
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Reset Shield")
-	player.shield = true
+	player.shield += 1
 	shield.play("regen")
 
 	emit_signal("transition", self, "idle")

@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bu74jl14q8mdw" path="res://scripts/player/states/dead.gd" id="6_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://0lpdlo70vhls" path="res://assets/sprites/player/shield_break_3.png" id="7_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://dieivu8283gnm" path="res://assets/sprites/player/shield_break_4.png" id="8_60mlk"]
-[ext_resource type="Script" uid="uid://dt2pfwdk7ot0o" path="res://scripts/player/states/reload.gd" id="8_smehm"]
+[ext_resource type="Script" path="res://scripts/player/states/reload.gd" id="8_smehm"]
 [ext_resource type="Texture2D" uid="uid://bkuebyrvk0s1n" path="res://assets/sprites/player/shield_particle.png" id="9_qfm1y"]
 [ext_resource type="Script" uid="uid://dgviejgjfe0yo" path="res://scripts/player/states/damaged.gd" id="9_ur7pv"]
 [ext_resource type="Script" uid="uid://x3yjj8kc1wu4" path="res://scripts/player/states/ResetShield.gd" id="10_y4r1p"]
@@ -98,7 +98,7 @@ turbulence_enabled = true
 turbulence_noise_strength = 6.29
 turbulence_noise_speed_random = 3.28
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Players"]]
 gravity_scale = 0.0
 linear_damp = 0.5
 angular_damp = 0.1

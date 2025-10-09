@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=10 format=3 uid="uid://dhm28ne3u5nwa"]
 
-[ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
-[ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
+[ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroids/asteroid_spawner.tscn" id="2_6we3w"]
+[ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player/player.tscn" id="2_ufxs0"]
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
-[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui.tscn" id="4_u2c82"]
+[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui/ui.tscn" id="4_u2c82"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
 [ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
+[ext_resource type="PackedScene" uid="uid://c6nx8u3qyeead" path="res://scenes/power_up/jena_juggernaut.tscn" id="8_h35hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
 size = Vector2(1154, 649)
@@ -39,5 +40,8 @@ script = ExtResource("6_u2c82")
 
 [node name="GameOver" type="Node" parent="StateMachine"]
 script = ExtResource("7_k5pu3")
+
+[node name="JenaJuggernaut" parent="." instance=ExtResource("8_h35hl")]
+position = Vector2(574, 325)
 
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]

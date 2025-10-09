@@ -13,13 +13,26 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "state.excalidraw.md"
+                "file": "architecture.excalidraw.md"
               },
               "icon": "excalidraw-icon",
-              "title": "state.excalidraw"
+              "title": "architecture.excalidraw"
+            }
+          },
+          {
+            "id": "26775a7a0a4fe004",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "powerup.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "powerup.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -166,10 +179,13 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3b9847edfa9fbdbf",
+  "active": "26775a7a0a4fe004",
   "lastOpenFiles": [
     "architecture.excalidraw.md",
+    "powerup.excalidraw.md",
     "state.excalidraw.md",
+    "Untitled.base",
+    "Untitled.md",
     "test.md",
     "create a link.md",
     "Welcome.md"

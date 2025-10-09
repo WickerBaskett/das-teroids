@@ -19,6 +19,10 @@ config/icon="uid://cj4jpgdssnx6g"
 
 SignalBus="*res://scripts/signal_bus.gd"
 
+[global_group]
+
+Players="Group containing all currently active players"
+
 [input]
 
 fire={

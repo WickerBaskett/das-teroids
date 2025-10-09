@@ -9,8 +9,8 @@ const shield_iframes: float = 0.25
 
 # Called when a state is first entered
 func enter() -> void:
-	if player.shield:
-		player.shield = false
+	if player.shield > 0:
+		player.shield -= 1
 		shield_recharge.start()
 		shield.play("break")
 		gpu_particles_2d.emitting = true
