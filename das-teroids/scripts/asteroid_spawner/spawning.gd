@@ -2,7 +2,7 @@ extends State
 
 const ASTEROID = preload("uid://cj6wbc1rkkw3t")
 
-@export var speed_mod: float
+@export var speed_mod: float = 1.0
 
 @onready var asteroid_spawner: Node2D = $"../.."
 @onready var spawn_timer: Timer = $"../../SpawnTimer"

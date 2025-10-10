@@ -1,16 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhm28ne3u5nwa"]
 
-[ext_resource type="PackedScene" uid="uid://cjsgle643hohi" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
+[ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
-[ext_resource type="PackedScene" uid="uid://bfjxjanc6tx24" path="res://scenes/score_keeper.tscn" id="3_6we3w"]
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
+[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui.tscn" id="4_u2c82"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Texture2D" uid="uid://betumflnsulr7" path="res://assets/sprites/backgrounds/background.png" id="5_k5pu3"]
 [ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
 [ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_qmak7"]
-font_size = 144
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
 size = Vector2(1902, 891)
@@ -24,17 +21,8 @@ position = Vector2(396, 399)
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
 
-[node name="ScoreKeeper" parent="." instance=ExtResource("3_6we3w")]
-
-[node name="GameOver" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_right = 1154.0
-offset_bottom = 648.0
-text = "GAME OVER!"
-label_settings = SubResource("LabelSettings_qmak7")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_u2c82")]
+player = NodePath("../Player")
 
 [node name="ValidSpace" type="Area2D" parent="."]
 

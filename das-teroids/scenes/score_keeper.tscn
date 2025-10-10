@@ -5,10 +5,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_5in7i"]
 font_size = 64
 
-[node name="ScoreKeeper" type="Node2D"]
+[node name="ScoreKeeper" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_d6wdj")
 
 [node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 17.0
 offset_right = 254.0
 offset_bottom = 88.0

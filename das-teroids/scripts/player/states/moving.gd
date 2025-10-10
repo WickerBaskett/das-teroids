@@ -27,5 +27,5 @@ func process_update(_delta: float) -> void:
 	if player.dead:
 		emit_signal("transition", self, "dead")
 
-	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0:
+	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:
 		emit_signal("transition", self, "shooting")
