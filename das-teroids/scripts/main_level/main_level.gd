@@ -11,12 +11,12 @@ func _ready() -> void:
 	resize_valid_area()
 
 
-
 func resize_valid_area() -> void:
 	var view_rect = valid_space.get_viewport_rect()
 	valid_space.shape.size = view_rect.size
 	valid_space.position = view_rect.size / 2
-	
+
+
 #####################
 #  Signal Handlers  #
 #####################

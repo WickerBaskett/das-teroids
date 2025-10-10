@@ -10,7 +10,7 @@ extends State
 func physics_update(_delta: float) -> void:
 	if Input.get_axis("left", "right") != 0 or Input.get_axis("up", "down") != 0:
 		emit_signal("transition", self, "moving")
-	
+
 		# Wrap player position around current viewport size
 	player.position = player.position.posmodv(player.view_size)
 
@@ -19,11 +19,11 @@ func physics_update(_delta: float) -> void:
 func process_update(_delta: float) -> void:
 	if player.collided:
 		emit_signal("transition", self, "damaged")
-		
+
 	if shield_recharge.time_left == 0 and player.shield == false:
 		emit_signal("transition", self, "resetshield")
 
-	if reload_timer.time_left == 0 and player.mag < player.mag_size:
+	if reload_timer.time_left == 0 and player.mag < player.MAG_SIZE:
 		emit_signal("transition", self, "reload")
 
 	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:

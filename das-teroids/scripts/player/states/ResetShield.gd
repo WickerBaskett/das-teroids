@@ -4,6 +4,7 @@ extends State
 @onready var shield_recharge: Timer = %ShieldRecharge
 @onready var shield: AnimatedSprite2D = %Shield
 
+
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Reset Shield")
