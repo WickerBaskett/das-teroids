@@ -7,16 +7,15 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
 @onready var collision_polygon_2d: CollisionPolygon2D = $"../../CollisionPolygon2D"
 
 
-
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Shooting")
-	
+
 	player.mag -= 1
-	
+
 	if reload_timer.is_stopped():
 		reload_timer.start()
-	
+
 	attack_cooldown.start()
 
 	# Create projectile
