@@ -12,7 +12,6 @@ var last_mag: int = 3
 @onready var reload_progress: ProgressBar = %ReloadProgress
 
 
-
 func enter() -> void:
 	# Set up player magizine ui
 	var pos = INITIAL_MAG_POS

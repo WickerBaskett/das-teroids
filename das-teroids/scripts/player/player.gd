@@ -5,10 +5,10 @@ var mag: int
 var reload_time: float = 0
 var collided: bool = false
 var shield: bool = true
+var dead: bool = false
 
 @onready var view_size: Vector2 = get_viewport_rect().size
 @onready var reload_timer: Timer = %ReloadTimer  # Used in the UI
-
 
 
 func _ready() -> void:

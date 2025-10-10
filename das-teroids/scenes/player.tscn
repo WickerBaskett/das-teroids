@@ -1,5 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://drxv3m3tji3j3"]
 
+
 [ext_resource type="Script" uid="uid://djn4hg22uxgbu" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://caay2221cmdu4" path="res://assets/sprites/player/ship_neutral.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://dysncgaxqp6db" path="res://assets/sprites/player/shield.png" id="3_d2wvv"]
@@ -97,6 +98,7 @@ alpha_curve = SubResource("CurveTexture_fulsm")
 turbulence_enabled = true
 turbulence_noise_strength = 6.29
 turbulence_noise_speed_random = 3.28
+[ext_resource type="Script" uid="uid://dt2pfwdk7ot0o" path="res://scripts/player/states/reload.gd" id="8_smehm"]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -143,11 +145,6 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="ShieldRecharge" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 5.0
-one_shot = true
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")
 initial_state = NodePath("Idle")
@@ -166,11 +163,5 @@ script = ExtResource("6_ur7pv")
 
 [node name="Reload" type="Node" parent="StateMachine"]
 script = ExtResource("8_smehm")
-
-[node name="Damaged" type="Node" parent="StateMachine"]
-script = ExtResource("9_ur7pv")
-
-[node name="ResetShield" type="Node" parent="StateMachine"]
-script = ExtResource("10_y4r1p")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
