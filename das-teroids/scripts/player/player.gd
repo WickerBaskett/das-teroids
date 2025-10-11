@@ -3,7 +3,10 @@ extends RigidBody2D
 const MAG_SIZE: int = 3
 var mag: int
 var reload_time: float = 0
+var collided: bool = false
+var shield: bool = true
 var dead: bool = false
+
 @onready var view_size: Vector2 = get_viewport_rect().size
 @onready var reload_timer: Timer = %ReloadTimer  # Used in the UI
 
@@ -18,7 +21,7 @@ func _ready() -> void:
 
 # Called on collision with asteroid
 func hit() -> void:
-	dead = true
+	collided = true
 
 
 # Update view_size when the viewport changes size

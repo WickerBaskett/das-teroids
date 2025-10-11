@@ -13,10 +13,10 @@
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "architecture.excalidraw.md"
+                "file": "state.excalidraw.md"
               },
               "icon": "excalidraw-icon",
-              "title": "architecture.excalidraw"
+              "title": "state.excalidraw"
             }
           }
         ]
@@ -168,8 +168,8 @@
   },
   "active": "3b9847edfa9fbdbf",
   "lastOpenFiles": [
-    "state.excalidraw.md",
     "architecture.excalidraw.md",
+    "state.excalidraw.md",
     "test.md",
     "create a link.md",
     "Welcome.md"

@@ -8,6 +8,13 @@ var game_over_flag: bool = false
 func _ready() -> void:
 	SignalBus.connect("player_death", _on_player_death)
 	get_viewport().connect("size_changed", _on_viewport_size_change)
+	resize_valid_area()
+
+
+func resize_valid_area() -> void:
+	var view_rect = valid_space.get_viewport_rect()
+	valid_space.shape.size = view_rect.size
+	valid_space.position = view_rect.size / 2
 
 
 #####################
@@ -21,9 +28,7 @@ func _on_player_death() -> void:
 
 
 func _on_viewport_size_change() -> void:
-	var view_rect = valid_space.get_viewport_rect()
-	valid_space.shape.size = view_rect.size
-	valid_space.position = view_rect.size / 2
+	resize_valid_area()
 
 
 func _on_valid_space_area_exited(area: Area2D) -> void:
