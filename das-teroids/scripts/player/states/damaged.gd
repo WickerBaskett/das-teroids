@@ -9,7 +9,6 @@ const SHIELD_IFRAMES: float = 0.25
 @onready var gpu_particles_2d: GPUParticles2D = $"../../Shield/GPUParticles2D"
 
 
-
 # Called when a state is first entered
 func enter() -> void:
 	if player.shield:

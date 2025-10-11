@@ -1,6 +1,5 @@
 extends State
 
-
 const PROJECTILE_X_SIZE: int = 20
 const INITIAL_MAG_POS: Vector2 = Vector2(28, 100)
 
