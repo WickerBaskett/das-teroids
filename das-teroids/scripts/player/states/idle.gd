@@ -20,6 +20,7 @@ func process_update(_delta: float) -> void:
 	if player.collided:
 		emit_signal("transition", self, "damaged")
 
+	print(shield_recharge.time_left)
 	if shield_recharge.time_left == 0 and player.shield == false:
 		emit_signal("transition", self, "resetshield")
 
