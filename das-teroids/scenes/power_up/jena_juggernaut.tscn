@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6nx8u3qyeead"]
+
+[ext_resource type="PackedScene" uid="uid://ii5og8rqlm4i" path="res://scenes/power_up/collectable.tscn" id="1_0ep80"]
+[ext_resource type="Script" uid="uid://dovtudtm8ki3h" path="res://scripts/power_up/jena_juggernaut.gd" id="1_fw3vu"]
+[ext_resource type="Texture2D" uid="uid://rj1d0dlam8l" path="res://assets/sprites/power_up/jena_juggernaut.png" id="2_fw3vu"]
+
+[node name="JenaJuggernaut" type="Node2D"]
+script = ExtResource("1_fw3vu")
+
+[node name="Collectable" parent="." instance=ExtResource("1_0ep80")]
+scale = Vector2(3.78, 2.195)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 12)
+texture = ExtResource("2_fw3vu")
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://crncbk07b3ypf"]
+
+[ext_resource type="Script" uid="uid://1gwr6184l3qd" path="res://scripts/power_up/collectable.gd" id="1_ti8a4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llfh3"]
+
+[node name="Collectable" type="Area2D"]
+script = ExtResource("1_ti8a4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_llfh3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

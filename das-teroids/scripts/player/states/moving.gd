@@ -5,6 +5,8 @@ const ROTATION_SPEED_SCALE = 0.1  # Scales the rotation speed of player
 
 @onready var player: RigidBody2D = $"../.."
 @onready var attack_cooldown: Timer = %AttackCooldown
+@onready var shield_recharge: Timer = %ShieldRecharge
+@onready var reload_timer: Timer = %ReloadTimer
 
 
 # Called from physics_process(delta: float)
@@ -26,6 +28,12 @@ func physics_update(_delta: float) -> void:
 func process_update(_delta: float) -> void:
 	if player.collided:
 		emit_signal("transition", self, "damaged")
+		
+	if (shield_recharge.time_left == 0 and player.shield == 0) or player.added_shield:
+		emit_signal("transition", self, "resetshield")
+		
+	if reload_timer.time_left == 0 and player.mag < player.MAG_SIZE:
+		emit_signal("transition", self, "reload")
 
 	if Input.is_action_pressed("fire") and attack_cooldown.time_left == 0.0 and player.mag > 0:
 		emit_signal("transition", self, "shooting")

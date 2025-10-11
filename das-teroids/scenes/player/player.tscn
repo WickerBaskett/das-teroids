@@ -18,6 +18,37 @@
 [ext_resource type="Script" uid="uid://dgviejgjfe0yo" path="res://scripts/player/states/damaged.gd" id="9_ur7pv"]
 [ext_resource type="Script" uid="uid://x3yjj8kc1wu4" path="res://scripts/player/states/ResetShield.gd" id="10_y4r1p"]
 
+[sub_resource type="Curve" id="Curve_qfm1y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9772728, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fulsm"]
+curve = SubResource("Curve_qfm1y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_60mlk"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 99.77
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+velocity_pivot = Vector3(2.5, 2.5, 0)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_max = 41.18
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 34.119995
+radial_accel_max = 39.999996
+scale_min = 0.5
+scale_max = 0.75
+alpha_curve = SubResource("CurveTexture_fulsm")
+turbulence_enabled = true
+turbulence_noise_strength = 6.29
+turbulence_noise_speed_random = 3.28
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4ail"]
 animations = [{
 "frames": [{
@@ -67,38 +98,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="Curve" id="Curve_qfm1y"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9772728, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_fulsm"]
-curve = SubResource("Curve_qfm1y")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_60mlk"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 99.77
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-angle_min = 1.0728835e-05
-angle_max = 360.00003
-velocity_pivot = Vector3(2.5, 2.5, 0)
-direction = Vector3(1, 1, 0)
-spread = 180.0
-initial_velocity_max = 41.18
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 34.119995
-radial_accel_max = 39.999996
-scale_min = 0.5
-scale_max = 0.75
-alpha_curve = SubResource("CurveTexture_fulsm")
-turbulence_enabled = true
-turbulence_noise_strength = 6.29
-turbulence_noise_speed_random = 3.28
-
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Players"]]
 gravity_scale = 0.0
 linear_damp = 0.5
 angular_damp = 0.1
@@ -109,24 +109,40 @@ position = Vector2(-2, -6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_g2els")
 
-[node name="Shield" type="AnimatedSprite2D" parent="."]
+[node name="ShieldBreak" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-3.9999998, -9.999999)
 scale = Vector2(0.445, 0.465)
-sprite_frames = SubResource("SpriteFrames_i4ail")
-animation = &"regen"
-frame = 5
-frame_progress = 1.0
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Shield"]
 emitting = false
 amount = 64
 texture = ExtResource("9_qfm1y")
-lifetime = 1.25
+lifetime = 0.24
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
+trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_60mlk")
+
+[node name="Shields" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Shield1" type="AnimatedSprite2D" parent="Shields"]
+position = Vector2(-3.9999998, -9.999999)
+scale = Vector2(0.445, 0.465)
+sprite_frames = SubResource("SpriteFrames_i4ail")
+animation = &"break"
+
+[node name="Shield2" type="AnimatedSprite2D" parent="Shields"]
+position = Vector2(-3.9999998, -9.999999)
+scale = Vector2(0.525, 0.549)
+sprite_frames = SubResource("SpriteFrames_i4ail")
+animation = &"regen"
+
+[node name="Shield3" type="AnimatedSprite2D" parent="Shields"]
+position = Vector2(-3.9999998, -9.999999)
+scale = Vector2(0.605, 0.632)
+sprite_frames = SubResource("SpriteFrames_i4ail")
+animation = &"regen"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.9999995, -5.9999986)
