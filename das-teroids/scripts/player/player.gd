@@ -1,14 +1,6 @@
 extends RigidBody2D
 
-const MAG_SIZE: int = 3
-var mag: int
-var reload_time: float = 0
-var collided: bool = false
-var shield: bool = true
-var dead: bool = false
-
 @onready var view_size: Vector2 = get_viewport_rect().size
-@onready var reload_timer: Timer = %ReloadTimer  # Used in the UI
 
 # This is used in the UI
 @onready var reload_timer: Timer = %ReloadTimer 
@@ -38,6 +30,9 @@ var added_shield: bool = false
 
 # Set on collection of Chappell Chomp Power Up
 var invincible: bool = false
+
+# Set on player death
+var dead: bool = false
 
 ######################
 #  Player Functions  #
