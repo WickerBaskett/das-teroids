@@ -4,6 +4,7 @@ extends Control
 
 var game_over_flag: bool = false
 
+
 func _ready() -> void:
 	SignalBus.connect("player_death", _on_player_death)
 

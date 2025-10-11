@@ -3,6 +3,7 @@ extends State
 
 @onready var game_over: Label = %GameOver
 
+
 # Called when a state is first entered
 func enter() -> void:
 	score_timer.stop()

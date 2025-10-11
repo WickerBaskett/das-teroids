@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Das-Teroids"
-run/main_scene="uid://dso7epbsx2cib"
+run/main_scene="uid://beucbbnygmqmr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://cj4jpgdssnx6g"
 
 [autoload]
 
 SignalBus="*res://scripts/signal_bus.gd"
+
+[display]
+
+window/size/viewport_width=1900
+window/size/viewport_height=890
 
 [global_group]
 

@@ -6,6 +6,7 @@ extends State
 
 
 
+
 # Called when a state is first entered
 # Precondition: 0 <= player.shield <= 2
 func enter() -> void:
