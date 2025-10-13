@@ -23,6 +23,7 @@ SignalBus="*res://scripts/signal_bus.gd"
 
 window/size/viewport_width=1900
 window/size/viewport_height=890
+window/stretch/mode="canvas_items"
 
 [global_group]
 
