@@ -51,10 +51,10 @@ script = ExtResource("6_u2c82")
 script = ExtResource("7_k5pu3")
 
 [node name="ChappelChomp" parent="." instance=ExtResource("8_h35hl")]
-position = Vector2(1567, 195)
+position = Vector2(1050, 303)
 
 [node name="JenaJuggernaut" parent="." instance=ExtResource("10_c7w6w")]
-position = Vector2(1583, 428)
+position = Vector2(726, 301)
 
 [node name="LawlorLag" parent="." instance=ExtResource("11_erkku")]
 position = Vector2(397, 299)

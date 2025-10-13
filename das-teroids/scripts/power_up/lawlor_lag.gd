@@ -20,7 +20,6 @@ func _on_collectable_collected(_player: RigidBody2D) -> void:
 	sprite_2d.visible = false
 	screen_effect.visible = true
 	if shader_rect.material is ShaderMaterial:
-		print("Updating Shader parameters")
 		shader_rect.material.set_shader_parameter("effect_origin", position / get_viewport_rect().size)
 		shader_rect.material.set_shader_parameter("start_time", Time.get_ticks_msec() / 1000.0)
 	
