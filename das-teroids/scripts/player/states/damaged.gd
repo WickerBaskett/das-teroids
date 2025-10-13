@@ -5,7 +5,6 @@ const SHIELD_IFRAMES: float = 0.25
 
 @onready var player: RigidBody2D = $"../.."
 @onready var shield_recharge: Timer = %ShieldRecharge
-@onready var gpu_particles_2d: GPUParticles2D = $"../../Shield/GPUParticles2D"
 @onready var shields: Node = %Shields
 @onready var shield_break: GPUParticles2D = %ShieldBreak
 

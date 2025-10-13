@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3rt1jjx58320"]
-
-[sub_resource type="Shader" id="Shader_c7sh0"]
-code = "shader_type canvas_item;
-render_mode unshaded;
+shader_type canvas_item;
 
 uniform sampler2D screen_tex: hint_screen_texture, repeat_disable, filter_nearest;
-uniform bool color_mode = false;
 
 // Definition of Sobel Operators
 const mat3 sv = mat3(vec3(-1, 0, 1),
@@ -16,7 +11,12 @@ const mat3 sh = mat3(vec3(-1, -2, -1),
 				     vec3(0, 0, 0),
 					 vec3(1, 2, 1));
 
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
 void fragment() {
+	// Construct 3x3 matrix of surrounding pixels
 	mat3 pixels;
 	for(int i = 0; i < 3; ++i) {
 		for(int j = 0; j < 3; ++j) {
@@ -26,48 +26,27 @@ void fragment() {
 			pixels[i][j] = grayscale.r + grayscale.g + grayscale.b;
 		}
 	}
+	
 	// Convolve the surrounding pixels with the vertical sobel operator
 	float v_convul = dot(pixels[0], sv[0]) + dot(pixels[1], sv[1]) + dot(pixels[2], sv[2]);
 	float h_convul = dot(pixels[0], sh[0]) + dot(pixels[1], sh[1]) + dot(pixels[2], sh[2]);
 	float val = sqrt(pow(v_convul, 2) + pow(h_convul,2));
-
+	
 	val = smoothstep(1.0, 1.0, val);
-
+	
 	if (val > 0.0) {
-		COLOR = vec4(0.0, 0.0, 0.0, 1.0);
+		COLOR = vec4(1.0, 1.0, 1.0, 1.0);
 	}
 	else {
-		COLOR = vec4(texelFetch(screen_tex, ivec2(FRAGCOORD.xy), 0).xyz, 1.0);
+		COLOR = texelFetch(screen_tex, ivec2(FRAGCOORD.xy), 0);
 	}
-
-	if (color_mode) {
-		COLOR = vec4(vec3(val), 1.0);
-	}
+	
+	COLOR = vec4(vec3(val), 1.0);
+	
+	//COLOR = texture(screen_tex, UV);
 }
 
 //void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
 //}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3x27y"]
-shader = SubResource("Shader_c7sh0")
-shader_parameter/color_mode = false
-
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_3x27y")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

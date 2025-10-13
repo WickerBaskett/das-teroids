@@ -3,6 +3,7 @@ extends Node
 # This implementation is based heavily on work done in this video:
 #       https://www.youtube.com/watch?v=ow_Lum-Agbs
 
+@warning_ignore("unused_signal")
 signal transition(state, new_state_name)
 
 
