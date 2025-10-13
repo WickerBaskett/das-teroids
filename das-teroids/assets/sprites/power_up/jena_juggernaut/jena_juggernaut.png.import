@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rj1d0dlam8l"
-path="res://.godot/imported/jena_juggernaut.png-9a294de37eee1bdcbbdc0ca67f87f0dd.ctex"
+path="res://.godot/imported/jena_juggernaut.png-bf244a158f9bb8c8135aa29dbb1e1f47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/power_up/jena_juggernaut.png"
-dest_files=["res://.godot/imported/jena_juggernaut.png-9a294de37eee1bdcbbdc0ca67f87f0dd.ctex"]
+source_file="res://assets/sprites/power_up/jena_juggernaut/jena_juggernaut.png"
+dest_files=["res://.godot/imported/jena_juggernaut.png-bf244a158f9bb8c8135aa29dbb1e1f47.ctex"]
 
 [params]
 

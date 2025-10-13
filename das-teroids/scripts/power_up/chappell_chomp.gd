@@ -4,8 +4,6 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var screen_effect: Control = %ScreenEffect
 
-# Flag to determine wether this powerup is collected
-var collected: bool = false
 
 func _ready() -> void:
 	print("Chappell Chomp Entered Scene")
@@ -14,10 +12,9 @@ func _ready() -> void:
 	screen_effect.global_position = Vector2(0,0)
 
 func _on_collectable_collected(player: RigidBody2D) -> void:
-	if player.is_in_group("Players") and not collected:
+	if player.is_in_group("Players"):
 		print("Collected Chappell Chomp")
 		
-		collected = true
 		animated_sprite_2d.visible = false
 		screen_effect.visible = true
 		player.invincible = true
