@@ -7,9 +7,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bbil7"]
 shader = ExtResource("4_ueu0w")
-shader_parameter/num_tones = 8
+shader_parameter/num_tones = 4
 shader_parameter/effect_origin = Vector2(0.5, 0.5)
 shader_parameter/start_time = 0.0
+shader_parameter/start = false
 
 [node name="LawlorLag" type="Node2D"]
 script = ExtResource("1_v36rp")
