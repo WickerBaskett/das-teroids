@@ -6,25 +6,15 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
 @onready var player: RigidBody2D = $"../.."
 @onready var collision_polygon_2d: CollisionPolygon2D = $"../../CollisionPolygon2D"
 
-
-# Called when a state is first entered
-func enter() -> void:
-	print("Entered Shooting")
-
-	player.mag -= 1
-
-	if reload_timer.is_stopped():
-		reload_timer.start()
-
-	attack_cooldown.start()
-
+# Spawn a projectile offset radians from directly in front of the player
+func spawn_proj(offset: float = 0.0) -> void:
 	# Create projectile
 	var proj = PROJECTILE.instantiate()
 	get_parent().add_child(proj)
 
 	# Assign starting position and rotation
 	proj.position = player.position
-	proj.rotation = player.rotation
+	proj.rotation = player.rotation + offset
 
 	# Get player and projectile dimensions
 	var player_size: Vector2 = collision_polygon_2d.get_polygon()[0]
@@ -37,5 +27,25 @@ func enter() -> void:
 	)
 
 	proj.position += rotated_pos
+
+# Called when a state is first entered
+func enter() -> void:
+	print("Entered Shooting")
+	
+	var bullet_offset: Array
+	if not player.infinite_ammo:
+		player.mag -= 1
+		
+		if reload_timer.is_stopped():
+			reload_timer.start()
+		
+		bullet_offset = range(0,1)
+	else:
+		bullet_offset = range(-1,2)
+
+	attack_cooldown.start()
+
+	for i in bullet_offset:
+		spawn_proj(i * player.accuracy_sway / 2 )
 
 	emit_signal("transition", self, "idle")

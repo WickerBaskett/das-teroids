@@ -15,6 +15,9 @@ const MAG_SIZE: int = 3
 # Number of bullets the player currently has
 var mag: int
 
+# Degrees in radians a projectiles path can vary from directly forward
+var accuracy_sway: float = PI / 2
+
 # Number of shields the player currently has
 var shield: int = true
 
@@ -31,6 +34,9 @@ var added_shield: bool = false
 # Set on collection of Chappell Chomp Power Up
 var invincible: bool = false
 
+# Set on collection of Schwartz Shot Power Up
+var infinite_ammo: bool = false
+
 # Set on player death
 var dead: bool = false
 
@@ -39,7 +45,7 @@ var dead: bool = false
 ######################
 
 func _ready() -> void:
-	mag = MAG_SIZE
+	mag =  MAG_SIZE
 	# Set up signal handler for viewport size changing
 	var viewport = get_viewport()
 	viewport.connect("size_changed", _on_viewport_size_changed)

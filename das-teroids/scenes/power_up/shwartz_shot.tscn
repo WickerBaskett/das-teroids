@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmpiritw37k1o"]
+
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/collectable.tscn" id="1_ocaek"]
+[ext_resource type="Script" uid="uid://dn51kv4lbir81" path="res://scripts/power_up/shwartz_shot.gd" id="1_ywn3o"]
+
+[sub_resource type="Gradient" id="Gradient_ywn3o"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_45b01"]
+gradient = SubResource("Gradient_ywn3o")
+
+[node name="ShwartzShot" type="Node2D"]
+script = ExtResource("1_ywn3o")
+
+[node name="Collectable" parent="." instance=ExtResource("1_ocaek")]
+scale = Vector2(4.000002, 3.96)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("GradientTexture2D_45b01")
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]
