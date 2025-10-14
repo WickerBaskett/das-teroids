@@ -4,7 +4,8 @@ uniform sampler2D screen_tex: hint_screen_texture, repeat_disable, filter_neares
 uniform int num_tones = 4;
 uniform vec2 effect_origin = vec2(0.5);
 uniform float start_time = 0.0;
-uniform bool start = false;
+uniform float offset = 0.05;
+
 
 
 vec4 posterize(vec2 screen_uv) {
@@ -25,9 +26,12 @@ void fragment() {
 	// Vary radius with time since the powerup was collected
 	float radius =  16.0 * smoothstep(-0.75, 1.0, TIME - start_time);
 	
-	
-	if (pow(radius, 2) > pow(pos.x, 2) + pow(pos.y, 2)) {
+	// Posterize inside radius
+	if (pow(radius, 2) > dot(pos, pos)) {
 		COLOR = posterize(SCREEN_UV);
+	}
+	else if (pow(radius + offset, 2) > dot(pos, pos)) {
+		COLOR = vec4(1.0); 
 	}
 	else {
 		COLOR = texture(screen_tex, SCREEN_UV);
