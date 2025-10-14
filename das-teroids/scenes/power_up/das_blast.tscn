@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://drvdab6gc1cfq"]
+
+[ext_resource type="Script" uid="uid://camjfr2y4gjp6" path="res://scripts/power_up/das_blast.gd" id="1_rqjnk"]
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/collectable.tscn" id="2_ok1ak"]
+
+[sub_resource type="Gradient" id="Gradient_rqjnk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok1ak"]
+gradient = SubResource("Gradient_rqjnk")
+fill = 2
+fill_from = Vector2(0.5233645, 0.47663552)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rqjnk"]
+radius = 0.01
+
+[node name="DasBlast" type="Node2D"]
+script = ExtResource("1_rqjnk")
+
+[node name="Collectable" parent="." instance=ExtResource("2_ok1ak")]
+scale = Vector2(4.2399993, 3.9600003)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("GradientTexture2D_ok1ak")
+
+[node name="Effect" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Effect"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_rqjnk")
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]

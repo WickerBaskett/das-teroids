@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=15 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroids/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player/player.tscn" id="2_ufxs0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c6nx8u3qyeead" path="res://scenes/power_up/jena_juggernaut.tscn" id="10_c7w6w"]
 [ext_resource type="PackedScene" uid="uid://7rr5innia2qy" path="res://scenes/power_up/lawlor_lag.tscn" id="11_erkku"]
 [ext_resource type="PackedScene" uid="uid://bmpiritw37k1o" path="res://scenes/power_up/shwartz_shot.tscn" id="12_63vgv"]
+[ext_resource type="PackedScene" uid="uid://drvdab6gc1cfq" path="res://scenes/power_up/das_blast.tscn" id="13_g2oho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
 size = Vector2(1902, 891)
@@ -61,6 +62,9 @@ position = Vector2(1036, 201)
 position = Vector2(1051, 443)
 
 [node name="ShwartzShot" parent="." instance=ExtResource("12_63vgv")]
-position = Vector2(403, 293)
+position = Vector2(1055, 577)
+
+[node name="DasBlast" parent="." instance=ExtResource("13_g2oho")]
+position = Vector2(410, 187)
 
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
