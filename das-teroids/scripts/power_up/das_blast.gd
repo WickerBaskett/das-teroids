@@ -2,13 +2,14 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var test_coll: CollisionShape2D = $Effect/CollisionShape2D
 @onready var effect: Area2D = %Effect
 @onready var effect_sprite: Sprite2D = %EffectSprite
 @export var duration: float = 2.0
 var active: bool = false
 
 func _on_collectable_collected(_player: RigidBody2D) -> void:
-	
+	print("Collected Collectable")
 	sprite_2d.visible = false
 	collision_shape_2d.disabled = false
 	effect_sprite.visible = true
@@ -24,4 +25,5 @@ func _physics_process(delta: float) -> void:
 			if area.has_method("hit") and not area.is_in_group("Player"):
 				area.hit()
 		effect_sprite.scale += Vector2(0.255, 0.255)
-		collision_shape_2d.shape.set_deferred("radius", collision_shape_2d.shape.radius + 500 * delta)
+		#collision_shape_2d.shape.set_deferred("radius", collision_shape_2d.shape.radius + 500 * delta)
+		test_coll.shape.set_deferred("radius", test_coll.shape.radius + 500 * delta)

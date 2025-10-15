@@ -2,6 +2,7 @@ extends Node2D
 
 # Amount to slow time by, base speed is 1.0
 @export var time_scale: float = 0.25
+const default_time_scale: float = 1.0
 
 # Time in seconds the powerup lasts
 @export var duration: float = 5.0
@@ -9,25 +10,39 @@ extends Node2D
 @onready var sprite_2d: Sprite2D = %Sprite2D
 @onready var screen_effect: Control = %ScreenEffect
 @onready var shader_rect: ColorRect = %ShaderRect
+@onready var duration_timer: Timer = %Duration
 
+var most_recent: bool = true;
 
 func _ready() -> void:
+	SignalBus.connect("lawlor_lag_activate", _lose_precedence)
 	screen_effect.size = get_viewport_rect().size
 	screen_effect.global_position = Vector2(0,0)
+	duration_timer.set_wait_time(duration * time_scale)
+	
+
+func _process(_delta: float) -> void:
+	shader_rect.material.set_shader_parameter("elapsed_time", duration - duration_timer.time_left)
 
 func _on_collectable_collected(_player: RigidBody2D) -> void:
+	SignalBus.emit_signal("lawlor_lag_activate", self)
+	most_recent = true
 	
 	sprite_2d.visible = false
 	screen_effect.visible = true
 	if shader_rect.material is ShaderMaterial:
 		shader_rect.material.set_shader_parameter("effect_origin", position / get_viewport_rect().size)
-		shader_rect.material.set_shader_parameter("start_time", Time.get_ticks_msec() / 1000.0)
+	duration_timer.start()
+
 	
-	var old_time_scale: float = Engine.get_time_scale()
 	Engine.set_time_scale(time_scale)
 	
-	await get_tree().create_timer(duration * time_scale).timeout
-	
-	Engine.set_time_scale(old_time_scale)
+	await duration_timer.timeout
+	if most_recent:
+		Engine.set_time_scale(default_time_scale)
 	
 	call_deferred("queue_free")
+
+func _lose_precedence(source: Node2D) -> void:
+	if self != source:
+		most_recent = false

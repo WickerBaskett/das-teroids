@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform sampler2D screen_tex: hint_screen_texture, repeat_disable, filter_nearest;
 uniform int num_tones = 4;
 uniform vec2 effect_origin = vec2(0.5);
-uniform float start_time = 0.0;
+uniform float elapsed_time = 0.0;
 uniform float offset = 0.05;
 
 
@@ -24,7 +24,7 @@ void fragment() {
 	vec2 pos = effect_origin - SCREEN_UV;
 	
 	// Vary radius with time since the powerup was collected
-	float radius =  16.0 * smoothstep(-1.0, 1.0, TIME - start_time);
+	float radius = smoothstep(0.0, 1.0, elapsed_time);
 	
 	// Posterize inside radius
 	if (pow(radius, 2) > dot(pos, pos)) {
