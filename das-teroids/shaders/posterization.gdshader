@@ -24,7 +24,7 @@ void fragment() {
 	vec2 pos = effect_origin - SCREEN_UV;
 	
 	// Vary radius with time since the powerup was collected
-	float radius = smoothstep(0.0, 1.0, elapsed_time);
+	float radius = 2048.0 * smoothstep(0.0, 10.0, elapsed_time);
 	
 	// Posterize inside radius
 	if (pow(radius, 2) > dot(pos, pos)) {

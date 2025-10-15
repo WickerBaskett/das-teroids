@@ -44,6 +44,7 @@ grow_vertical = 2
 
 [node name="Duration" type="Timer" parent="ScreenEffect"]
 unique_name_in_owner = true
+wait_time = 4096.0
 one_shot = true
 
 [connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]

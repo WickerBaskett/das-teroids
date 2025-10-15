@@ -62,7 +62,4 @@ position = Vector2(1025, 257)
 [node name="LawlorLag" parent="." instance=ExtResource("11_erkku")]
 position = Vector2(404, 253)
 
-[node name="LawlorLag2" parent="." instance=ExtResource("11_erkku")]
-position = Vector2(404, 162)
-
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
