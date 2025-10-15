@@ -31,7 +31,7 @@ func _ready() -> void:
 		6:
 			sprite_2d.texture = A_A
 
-	# Randomize asteroid speed in range [0.5 .. 5.5]
+	# Randomize asteroid speed by factor in range [0.5 .. 1.5]
 	speed *= randf() + 0.5
 
 
