@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://fvdpqbbabfgy" path="res://scripts/power_up/system/powerup.gd" id="1_o0dnd"]
 
 [node name="Powerup" type="Node2D"]
+z_index = 50
 script = ExtResource("1_o0dnd")

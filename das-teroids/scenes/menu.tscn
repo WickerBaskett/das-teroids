@@ -17,6 +17,7 @@ unicode = 32
 events = [SubResource("InputEventKey_yqeox"), SubResource("InputEventKey_vjb58")]
 
 [node name="Control" type="Control"]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
