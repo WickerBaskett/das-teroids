@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://da0ieepgm85yw" path="res://shaders/posterization.gdshader" id="4_ueu0w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bbil7"]
+resource_local_to_scene = true
 shader = ExtResource("4_ueu0w")
 shader_parameter/num_tones = 4
 shader_parameter/effect_origin = Vector2(0.5, 0.5)

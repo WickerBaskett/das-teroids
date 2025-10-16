@@ -39,6 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kyo17"]
+resource_local_to_scene = true
 shader = ExtResource("7_1vxpx")
 shader_parameter/effect = ExtResource("8_1vxpx")
 

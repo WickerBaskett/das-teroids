@@ -12,6 +12,7 @@ fill_from = Vector2(0.5233645, 0.47663552)
 fill_to = Vector2(0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rqjnk"]
+resource_local_to_scene = true
 radius = 0.01
 
 [sub_resource type="Gradient" id="Gradient_ok1ak"]
@@ -20,6 +21,7 @@ offsets = PackedFloat32Array(0, 0.7133333)
 colors = PackedColorArray(0.65882355, 0.3529412, 0, 0.58431375, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_asy2c"]
+resource_local_to_scene = true
 gradient = SubResource("Gradient_ok1ak")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
