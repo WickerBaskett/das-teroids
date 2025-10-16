@@ -27,7 +27,7 @@ func _on_spawn_timer_timeout() -> void:
 			instance = LAWLOR_LAG.instantiate()
 		4:
 			instance = SHWARTZ_SHOT.instantiate()
-	instance = LAWLOR_LAG.instantiate()
+
 	
 	# Start in the top left corner of the view
 	var pos = Vector2(randi() % int(floor(view_size.x - (view_size.x / 10.0))), randi() % int(floor(view_size.y - (view_size.y / 10.0))))

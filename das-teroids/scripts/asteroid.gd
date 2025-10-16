@@ -8,9 +8,8 @@ const A_ALEX = preload("uid://bibnhhn0d7swa")
 const A_G = preload("uid://2hdgbpa2bqxw")
 const A_A = preload("uid://c2cc0lisfkpck")
 
-# @export allows us to modify this value in the editor
-@export var speed: float = 50.0
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var asteroid: Node2D = $".."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,20 +30,6 @@ func _ready() -> void:
 		6:
 			sprite_2d.texture = A_A
 
-	# Randomize asteroid speed by factor in range [0.5 .. 1.5]
-	speed *= randf() + 0.5
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	# Multiplying by delta makes asteroid speed consistent
-	# across different frame rates
-	var rotated_speed = Vector2(
-		-sin(self.rotation) * speed * delta, cos(self.rotation) * speed * delta
-	)
-	self.position += rotated_speed
-
-
 func hit():
 	call_deferred("queue_free")
 
@@ -54,4 +39,4 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Body Hit Asteroid...")
 	if body.has_method("hit"):
 		body.hit()
-		call_deferred("queue_free")
+		asteroid.call_deferred("queue_free")
