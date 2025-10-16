@@ -6,14 +6,12 @@ extends Node2D
 
 
 func _ready() -> void:
-	print("Chappell Chomp Entered Scene")
 	animated_sprite_2d.play("default")
 	screen_effect.size = get_viewport_rect().size
 	screen_effect.global_position = Vector2(0,0)
 
 func _on_collectable_collected(player: RigidBody2D) -> void:
 	if player.is_in_group("Players"):
-		print("Collected Chappell Chomp")
 		
 		animated_sprite_2d.visible = false
 		screen_effect.visible = true
@@ -22,7 +20,5 @@ func _on_collectable_collected(player: RigidBody2D) -> void:
 		await get_tree().create_timer(duration).timeout
 		
 		player.invincible = false
-		
-		print("Chappell Chomp is Over")
 		
 		call_deferred("queue_free")

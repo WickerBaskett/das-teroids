@@ -13,16 +13,14 @@ const default_time_scale: float = 1.0
 @onready var duration_timer: Timer = %Duration
 
 var most_recent: bool = true;
+var effect_origin: Vector2 = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	SignalBus.connect("lawlor_lag_activate", _lose_precedence)
-	screen_effect.size = get_viewport_rect().size
-	screen_effect.global_position = Vector2(0,0)
 	duration_timer.set_wait_time(duration * time_scale)
 	
 
 func _process(_delta: float) -> void:	
-	print((duration * time_scale) - duration_timer.time_left)
 	shader_rect.material.set_shader_parameter("elapsed_time", (duration * time_scale) - duration_timer.time_left)
 
 func _on_collectable_collected(_player: RigidBody2D) -> void:
@@ -30,9 +28,16 @@ func _on_collectable_collected(_player: RigidBody2D) -> void:
 	most_recent = true
 	
 	sprite_2d.visible = false
+	
+	screen_effect.size = get_viewport_rect().size
 	screen_effect.visible = true
+	
 	if shader_rect.material is ShaderMaterial:
-		shader_rect.material.set_shader_parameter("effect_origin", position / get_viewport_rect().size)
+		print("Setting Shader Parameter for Effect Origin")
+		print(effect_origin)
+		shader_rect.material.set_shader_parameter("effect_origin", effect_origin)
+		
+		
 	duration_timer.start()
 
 	

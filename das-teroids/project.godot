@@ -27,6 +27,7 @@ window/size/viewport_height=890
 [global_group]
 
 Players="Group containing all currently active players"
+Collectable="Group for powerups"
 
 [input]
 

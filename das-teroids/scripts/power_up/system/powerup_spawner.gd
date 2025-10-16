@@ -1,20 +1,22 @@
-extends State
+extends Node2D
 
-const ASTEROID = preload("uid://cj6wbc1rkkw3t")
-
-@export var speed_mod: float = 1.0
-
-@onready var asteroid_spawner: Node2D = $"../.."
-@onready var spawn_timer: Timer = $"../../SpawnTimer"
+const POWERUP = preload("uid://80nqkajvadrc")
 
 
-func enter() -> void:
-	var instance = ASTEROID.instantiate()
+var view_size
 
+func _ready() -> void:
+	view_size = get_viewport_rect().size
+	get_viewport().connect("size_changed", _on_viewport_size_change)
+
+func _on_spawn_timer_timeout() -> void:
+
+	var powerup: Node2D = POWERUP.instantiate();
+	
 	##########################################
-	#  Setup asteroid position and rotation  #
+	#  Setup powerup position and rotation  #
 	##########################################
-	var view = asteroid_spawner.get_viewport_rect()
+	var view = get_viewport_rect()
 
 	# Start in the top left corner of the view
 	var pos = Vector2(view.position.x, view.position.y)
@@ -44,15 +46,10 @@ func enter() -> void:
 			rot += PI / 2
 
 	# Apply changes to instance'
-	instance.speed *= speed_mod
-	instance.set_position(pos) 
-	instance.set_rotation(rot)
+	powerup.set_position(pos)
+	powerup.set_rotation(rot)
 
-	# This feels weird, asteroids maybe shouldnt be children of
-	# the spawning state? They are still grandchildren of the
-	# asteroid spawner but it feels a little weird
-	add_child(instance)
-
-	spawn_timer.start()
-
-	emit_signal("transition", self, "idle")
+	add_child(powerup)
+	
+func _on_viewport_size_change() -> void:
+	view_size = get_viewport_rect().size

@@ -30,13 +30,15 @@ func _ready() -> void:
 		6:
 			sprite_2d.texture = A_A
 
-func hit():
-	call_deferred("queue_free")
+func die() -> void:
+	asteroid.call_deferred("queue_free")
 
+func hit():
+	die()
 
 # On player collision
 func _on_body_entered(body: Node2D) -> void:
 	print("Body Hit Asteroid...")
 	if body.has_method("hit"):
 		body.hit()
-		asteroid.call_deferred("queue_free")
+		die()

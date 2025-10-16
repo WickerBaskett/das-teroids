@@ -1,4 +1,5 @@
 extends Node2D
+class_name MovingObject
 
 # @export allows us to modify this value in the editor
 @export var speed: float = 50.0
@@ -6,7 +7,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	# Randomize asteroid speed by factor in range [0.5 .. 1.5]
 	speed *= randf() + 0.5
 

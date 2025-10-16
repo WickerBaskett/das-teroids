@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=11 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroids/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player/player.tscn" id="2_ufxs0"]
@@ -8,8 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://betumflnsulr7" path="res://assets/sprites/backgrounds/background.png" id="5_k5pu3"]
 [ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
 [ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
-[ext_resource type="PackedScene" uid="uid://drvdab6gc1cfq" path="res://scenes/power_up/das_blast.tscn" id="10_c7w6w"]
-[ext_resource type="PackedScene" uid="uid://dcesbldjhcg2n" path="res://scenes/power_up/powerup_spawner.tscn" id="14_c0gn3"]
+[ext_resource type="PackedScene" uid="uid://dcesbldjhcg2n" path="res://scenes/power_up/system/powerup_spawner.tscn" id="14_c0gn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
 size = Vector2(1902, 891)
@@ -51,11 +50,5 @@ script = ExtResource("6_u2c82")
 
 [node name="GameOver" type="Node" parent="StateMachine"]
 script = ExtResource("7_k5pu3")
-
-[node name="DasBlast" parent="." instance=ExtResource("10_c7w6w")]
-position = Vector2(119, 261)
-
-[node name="DasBlast2" parent="." instance=ExtResource("10_c7w6w")]
-position = Vector2(1025, 257)
 
 [connection signal="area_exited" from="ValidSpace" to="." method="_on_valid_space_area_exited"]
