@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drvdab6gc1cfq"]
 
 [ext_resource type="Script" uid="uid://camjfr2y4gjp6" path="res://scripts/power_up/das_blast.gd" id="1_rqjnk"]
-[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/collectable.tscn" id="2_ok1ak"]
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/system/collectable.tscn" id="2_ok1ak"]
 
 [sub_resource type="Gradient" id="Gradient_rqjnk"]
 

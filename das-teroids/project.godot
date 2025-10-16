@@ -23,11 +23,13 @@ SignalBus="*res://scripts/signal_bus.gd"
 
 window/size/viewport_width=1900
 window/size/viewport_height=890
+window/stretch/mode="canvas_items"
 
 [global_group]
 
 Players="Group containing all currently active players"
 Collectable="Group for powerups"
+Projectile="A group for player projectiles"
 
 [input]
 
