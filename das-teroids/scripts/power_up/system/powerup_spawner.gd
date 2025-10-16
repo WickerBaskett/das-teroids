@@ -2,17 +2,17 @@ extends Node2D
 
 const POWERUP = preload("uid://80nqkajvadrc")
 
-
 var view_size
+
 
 func _ready() -> void:
 	view_size = get_viewport_rect().size
 	get_viewport().connect("size_changed", _on_viewport_size_change)
 
-func _on_spawn_timer_timeout() -> void:
 
-	var powerup: Node2D = POWERUP.instantiate();
-	
+func _on_spawn_timer_timeout() -> void:
+	var powerup: Node2D = POWERUP.instantiate()
+
 	##########################################
 	#  Setup powerup position and rotation  #
 	##########################################
@@ -50,6 +50,7 @@ func _on_spawn_timer_timeout() -> void:
 	powerup.set_rotation(rot)
 
 	add_child(powerup)
-	
+
+
 func _on_viewport_size_change() -> void:
 	view_size = get_viewport_rect().size

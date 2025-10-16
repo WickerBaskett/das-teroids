@@ -1,5 +1,5 @@
-extends Node2D
 class_name MovingObject
+extends Node2D
 
 # @export allows us to modify this value in the editor
 @export var speed: float = 50.0

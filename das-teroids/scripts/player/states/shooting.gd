@@ -6,6 +6,7 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
 @onready var player: RigidBody2D = $"../.."
 @onready var collision_polygon_2d: CollisionPolygon2D = $"../../CollisionPolygon2D"
 
+
 # Spawn a projectile offset radians from directly in front of the player
 func spawn_proj(offset: float = 0.0) -> void:
 	# Create projectile
@@ -28,24 +29,25 @@ func spawn_proj(offset: float = 0.0) -> void:
 
 	proj.position += rotated_pos
 
+
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Shooting")
-	
+
 	var bullet_offset: Array
 	if not player.infinite_ammo:
 		player.mag -= 1
-		
+
 		if reload_timer.is_stopped():
 			reload_timer.start()
-		
-		bullet_offset = range(0,1)
+
+		bullet_offset = range(0, 1)
 	else:
-		bullet_offset = range(-1,2)
+		bullet_offset = range(-1, 2)
 
 	attack_cooldown.start()
 
 	for i in bullet_offset:
-		spawn_proj(i * player.accuracy_sway / 2 )
+		spawn_proj(i * player.accuracy_sway / 2)
 
 	emit_signal("transition", self, "idle")

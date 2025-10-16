@@ -31,6 +31,7 @@ metadata/_snap_enabled = true
 script = ExtResource("1_rqjnk")
 
 [node name="Collectable" parent="." instance=ExtResource("2_ok1ak")]
+unique_name_in_owner = true
 scale = Vector2(4.2399993, 3.9600003)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

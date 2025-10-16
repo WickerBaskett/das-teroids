@@ -8,9 +8,10 @@ const SHWARTZ_SHOT = preload("uid://bmpiritw37k1o")
 
 var screen_effect: bool = false
 
+
 func _ready() -> void:
 	SignalBus.connect("stop_moving", _stop_moving)
-	match randi() % 5:
+	match 0:  #randi() % 5:
 		0:
 			add_child(DAS_BLAST.instantiate())
 		1:
@@ -28,24 +29,20 @@ func _ready() -> void:
 func _stop_moving(node: Node2D) -> void:
 	if self.get_children().size() != 1:
 		return
-		
-	var powerup = self.get_child(0)
-	if powerup is not Node2D:
-		return
-		
-		
 
-		
+	var powerup = self.get_child(0)
+	if !powerup.is_class("Node2D"):
+		return
+
 	for child in powerup.get_children():
 		if child.is_in_group("Collectable") and child == node:
-			
 			rotation = 0.0
 			speed = 0.0
-			
+
 			# Set the position to top left corner of viewport so
 			# post processing effects cover entire screen
 			if screen_effect:
 				print("Screen effect powerup collected")
 				position = get_viewport_rect().position
-			
+
 			return

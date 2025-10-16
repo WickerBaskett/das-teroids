@@ -5,8 +5,6 @@ extends State
 @onready var shields: Node2D = %Shields
 
 
-
-
 # Called when a state is first entered
 # Precondition: 0 <= player.shield <= 2
 func enter() -> void:
@@ -18,6 +16,7 @@ func enter() -> void:
 	player.added_shield = false
 
 	emit_signal("transition", self, "idle")
+
 
 func restore_shield() -> void:
 	shields.get_children()[player.shield].play("regen")

@@ -1,10 +1,5 @@
 extends RigidBody2D
 
-@onready var view_size: Vector2 = get_viewport_rect().size
-
-# This is used in the UI
-@onready var reload_timer: Timer = %ReloadTimer 
-
 #######################
 #  Player Statistics  #
 #######################
@@ -40,12 +35,22 @@ var infinite_ammo: bool = false
 # Set on player death
 var dead: bool = false
 
+#######################
+#  Onready Variables  #
+#######################
+
+@onready var view_size: Vector2 = get_viewport_rect().size
+
+# This is used in the UI
+@onready var reload_timer: Timer = %ReloadTimer
+
 ######################
 #  Player Functions  #
 ######################
 
+
 func _ready() -> void:
-	mag =  MAG_SIZE
+	mag = MAG_SIZE
 	# Set up signal handler for viewport size changing
 	var viewport = get_viewport()
 	viewport.connect("size_changed", _on_viewport_size_changed)
@@ -58,5 +63,4 @@ func hit() -> void:
 
 # Update view_size when the viewport changes size
 func _on_viewport_size_changed() -> void:
-	pass
 	view_size = get_viewport_rect().size

@@ -28,10 +28,10 @@ func physics_update(_delta: float) -> void:
 func process_update(_delta: float) -> void:
 	if player.collided:
 		emit_signal("transition", self, "damaged")
-		
+
 	if (shield_recharge.time_left == 0 and player.shield == 0) or player.added_shield:
 		emit_signal("transition", self, "resetshield")
-		
+
 	if reload_timer.time_left == 0 and player.mag < player.MAG_SIZE:
 		emit_signal("transition", self, "reload")
 

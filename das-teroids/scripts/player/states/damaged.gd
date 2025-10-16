@@ -8,9 +8,6 @@ const SHIELD_IFRAMES: float = 0.25
 @onready var shields: Node = %Shields
 @onready var shield_break: GPUParticles2D = %ShieldBreak
 
-# Time in Seconds before player can be hit again after shield breaks
-const shield_iframes: float = 0.25 
-
 
 # Called when a state is first entered
 func enter() -> void:

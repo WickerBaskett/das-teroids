@@ -4,13 +4,15 @@ signal collected(player: RigidBody2D)
 
 var collected_flag: bool = false
 
+
 func collect() -> void:
 	collected_flag = true
 	var bodies = get_tree().get_nodes_in_group("Players")
-	
+
 	if len(bodies) > 0:
 		emit_signal("collected", bodies[0])
 		SignalBus.emit_signal("stop_moving", self)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players") and not collected_flag:
