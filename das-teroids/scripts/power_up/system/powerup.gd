@@ -10,7 +10,7 @@ var screen_effect: bool = false
 
 func _ready() -> void:
 	SignalBus.connect("stop_moving", _stop_moving)
-	match 3: #randi() % 5:
+	match 1: #randi() % 5:
 		0:
 			add_child(DAS_BLAST.instantiate())
 		1:
@@ -42,15 +42,10 @@ func _stop_moving(node: Node2D) -> void:
 			rotation = 0.0
 			speed = 0.0
 			
-			# Lawlor lag needs original position to center effect
-			if "effect_origin" in powerup:
-				print("Setting Effect Origin")
-				print(position)
-				powerup.effect_origin = position
-			
 			# Set the position to top left corner of viewport so
 			# post processing effects cover entire screen
 			if screen_effect:
+				print("Screen effect powerup collected")
 				position = get_viewport_rect().position
 			
 			return

@@ -7,8 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	animated_sprite_2d.play("default")
-	screen_effect.size = get_viewport_rect().size
-	screen_effect.global_position = Vector2(0,0)
+	
 
 func _on_collectable_collected(player: RigidBody2D) -> void:
 	if player.is_in_group("Players"):
@@ -16,6 +15,8 @@ func _on_collectable_collected(player: RigidBody2D) -> void:
 		animated_sprite_2d.visible = false
 		screen_effect.visible = true
 		player.invincible = true
+		
+		screen_effect.size = get_viewport_rect().size
 		
 		await get_tree().create_timer(duration).timeout
 		

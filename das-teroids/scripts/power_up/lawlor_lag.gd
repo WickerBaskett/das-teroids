@@ -13,7 +13,6 @@ const default_time_scale: float = 1.0
 @onready var duration_timer: Timer = %Duration
 
 var most_recent: bool = true;
-var effect_origin: Vector2 = Vector2(0.0, 0.0)
 
 func _ready() -> void:
 	SignalBus.connect("lawlor_lag_activate", _lose_precedence)
@@ -33,9 +32,7 @@ func _on_collectable_collected(_player: RigidBody2D) -> void:
 	screen_effect.visible = true
 	
 	if shader_rect.material is ShaderMaterial:
-		print("Setting Shader Parameter for Effect Origin")
-		print(effect_origin)
-		shader_rect.material.set_shader_parameter("effect_origin", effect_origin)
+		shader_rect.material.set_shader_parameter("effect_origin", global_position / screen_effect.size)
 		
 		
 	duration_timer.start()
