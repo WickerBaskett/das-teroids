@@ -31,9 +31,9 @@ func _process(_delta: float) -> void:
 
 func _on_collectable_collected(_player: RigidBody2D) -> void:
 	SignalBus.emit_signal("lawlor_lag_activate", self)
-	
+
 	most_recent = true
-	scale = Vector2(1.0,1.0)
+	scale = Vector2(1.0, 1.0)
 	sprite_2d.visible = false
 
 	screen_effect.size = get_viewport_rect().size

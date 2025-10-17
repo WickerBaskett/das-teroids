@@ -8,10 +8,11 @@ extends Node2D
 func _ready() -> void:
 	animated_sprite_2d.play("idle")
 
+
 func _on_collectable_collected(player: RigidBody2D) -> void:
 	animated_sprite_2d.visible = false
 	player.infinite_ammo = true
-	scale = Vector2(1.0,1.0)
+	scale = Vector2(1.0, 1.0)
 
 	if player.mag < 1:
 		player.mag = 1

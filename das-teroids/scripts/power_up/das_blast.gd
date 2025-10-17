@@ -11,8 +11,10 @@ var active: bool = false
 @onready var effect_sprite: Sprite2D = %EffectSprite
 @onready var collectable: Area2D = %Collectable
 
+
 func _ready() -> void:
 	animated_sprite_2d.play("idle")
+
 
 func _on_collectable_collected(_player: RigidBody2D) -> void:
 	animated_sprite_2d.visible = false
