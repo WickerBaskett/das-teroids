@@ -1,5 +1,6 @@
 # DAS-TEROIDS
 Welcome to the github repository for Das-teroids!
+<img width="1900" height="889" alt="Gameplay" src="https://github.com/user-attachments/assets/3b82048f-5dbc-40fa-811c-8e694faf9563" />
 This is an Asteroids-like game themed after some of the students and faculty in our computer science department, created for the UAF CS 471 course.
 
 ## Installation / Running
@@ -10,6 +11,7 @@ If you would like to run Das-teroids on Linux, you must have the Godot IDE insta
 Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!
 
 ## Gameplay
+<img width="200" height="300" alt="ship_neutral" src="https://github.com/user-attachments/assets/d047d9a2-9e85-4642-b4ba-efb91dea8d45" />
 In Das-teroids, the player character is represented by the Das-ship: a white, triangular rocket ship. Aliens will approach the player from off-screen, and the player's objective is to survive as long as possible by dodging these aliens or shooting them. The player can pick up power-ups which provide various beneficial effects, such as extra shields or slowing down the aliens.
 
 ## Controls
