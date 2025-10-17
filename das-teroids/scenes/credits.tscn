@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjhxmtjmcjwo"]
+
+[ext_resource type="Script" uid="uid://bgxkjlqojqhar" path="res://scripts/credits.gd" id="1_0bpdh"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_0bpdh")
+
+[node name="credits_label" type="Label" parent="."]
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1900.0
+offset_bottom = 892.0
+theme_override_font_sizes/font_size = 40
+text = "DEVELOPERS
+
+Scrum Master
+Andrew Winford
+
+Scrum-inions
+Johnathan Braugh
+Alex Johnson
+Elliott Lewendowski"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 229.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 32
+text = "Play Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

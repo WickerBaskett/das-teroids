@@ -1,6 +1,7 @@
 extends Control
 
 const MAIN_LEVEL = preload("uid://dhm28ne3u5nwa")
+const CREDITS = preload("res://scenes/credits.tscn")
 
 @onready var box_cont: BoxContainer = $BoxContainer
 
@@ -22,3 +23,6 @@ func _on_viewport_size_changed() -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_packed(MAIN_LEVEL)
+	
+func _credits_button_pressed() -> void:
+	get_tree().change_scene_to_packed(CREDITS)
