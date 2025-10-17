@@ -11,7 +11,7 @@ var screen_effect: bool = false
 
 func _ready() -> void:
 	SignalBus.connect("stop_moving", _stop_moving)
-	match 0:  #randi() % 5:
+	match randi() % 5:
 		0:
 			add_child(DAS_BLAST.instantiate())
 		1:

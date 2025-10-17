@@ -14,6 +14,7 @@ func _on_collectable_collected(player: RigidBody2D) -> void:
 		animated_sprite_2d.visible = false
 		screen_effect.visible = true
 		player.invincible = true
+		scale = Vector2(1.0, 1.0)
 
 		screen_effect.size = get_viewport_rect().size
 
