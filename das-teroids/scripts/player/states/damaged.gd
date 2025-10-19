@@ -9,6 +9,7 @@ const SHIELD_IFRAMES: float = 0.25
 @onready var shield_break: GPUParticles2D = %ShieldBreak
 @onready var damaged_audio: Node2D = %"Player Audio/Damaged Audio"
 
+
 # Called when a state is first entered
 func enter() -> void:
 	print("Entered Damaged")

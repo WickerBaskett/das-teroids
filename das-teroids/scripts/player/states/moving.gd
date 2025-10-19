@@ -10,6 +10,7 @@ const ROTATION_SPEED_SCALE = 0.1  # Scales the rotation speed of player
 @onready var thruster_particles: GPUParticles2D = %"Thruster Particles"
 @onready var thruster_audio: Node2D = %"Player Audio/Thruster Audio"
 
+
 # Called from physics_process(delta: float)
 func physics_update(_delta: float) -> void:
 	var player_rotation := Input.get_axis("ui_left", "ui_right")
