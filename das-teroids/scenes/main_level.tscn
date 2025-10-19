@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player.tscn" id="2_ufxs0"]
+[ext_resource type="AudioStream" uid="uid://pa7gygr1k2nb" path="res://assets/music/Jonathan’s Song.wav" id="4_iqu8w"]
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui.tscn" id="4_u2c82"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
@@ -20,6 +21,10 @@ position = Vector2(396, 399)
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="AsteroidSpawner"]
+stream = ExtResource("4_iqu8w")
+autoplay = true
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_u2c82")]
 player = NodePath("../Player")
