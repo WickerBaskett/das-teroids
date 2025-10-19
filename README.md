@@ -11,8 +11,9 @@ If you would like to run Das-teroids on Linux, you must have the Godot IDE insta
 Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!
 
 ## Gameplay
-<img width="200" height="300" alt="ship_neutral" src="https://github.com/user-attachments/assets/d047d9a2-9e85-4642-b4ba-efb91dea8d45" />
+<img width="200" height="300" alt="ship_neutral" src="https://github.com/user-attachments/assets/d047d9a2-9e85-4642-b4ba-efb91dea8d45" align="left"/>
 In Das-teroids, the player character is represented by the Das-ship: a white, triangular rocket ship. Aliens will approach the player from off-screen, and the player's objective is to survive as long as possible by dodging these aliens or shooting them. The player can pick up power-ups which provide various beneficial effects, such as extra shields or slowing down the aliens.
+<br clear="left"\>
 
 ## Controls
 - The up and down arrow keys move your ship forward and backward, respectively.
