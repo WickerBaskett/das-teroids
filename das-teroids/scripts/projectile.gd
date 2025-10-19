@@ -15,6 +15,9 @@ func _process(delta: float) -> void:
 	)
 	self.position += rotated_speed
 
+func hit() -> void:
+	call_deferred("queue_free")
+
 
 # On collision with asteroid
 func _on_area_entered(area: Area2D) -> void:
