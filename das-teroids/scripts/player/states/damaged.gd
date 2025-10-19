@@ -7,7 +7,7 @@ const SHIELD_IFRAMES: float = 0.25
 @onready var shield_recharge: Timer = %ShieldRecharge
 @onready var shields: Node = %Shields
 @onready var shield_break: GPUParticles2D = %ShieldBreak
-
+@onready var damaged_audio: Node2D = %"Player Audio/Damaged Audio"
 
 # Called when a state is first entered
 func enter() -> void:
@@ -21,6 +21,7 @@ func enter() -> void:
 		player.shield -= 1
 		shield_recharge.start()
 		shields.get_children()[player.shield].play("break")
+		damaged_audio.play()
 		shield_break.emitting = true
 
 	if shield_recharge.time_left < (shield_recharge.wait_time - SHIELD_IFRAMES):

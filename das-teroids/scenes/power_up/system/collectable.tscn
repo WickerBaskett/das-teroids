@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://crncbk07b3ypf"]
+[gd_scene load_steps=4 format=3 uid="uid://crncbk07b3ypf"]
 
 [ext_resource type="Script" uid="uid://1gwr6184l3qd" path="res://scripts/power_up/system/collectable.gd" id="1_ti8a4"]
+[ext_resource type="AudioStream" uid="uid://i0taidqy3p6s" path="res://assets/PowerUpCollected.wav" id="2_rahwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llfh3"]
 
@@ -9,6 +10,10 @@ script = ExtResource("1_ti8a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_llfh3")
+
+[node name="Collected Audio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_rahwy")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
