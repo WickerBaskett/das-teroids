@@ -3,8 +3,7 @@ extends Area2D
 const SPEED: float = 1000.0
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
-
-const explosion = preload("res://scenes/explosion.tscn")
+@onready var explosion = preload("res://scenes/explosion.tscn")
 
 
 func _ready() -> void:
