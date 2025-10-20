@@ -36,6 +36,7 @@ func die() -> void:
 
 
 func hit():
+	SignalBus.emit_signal("asteroid_death")
 	die()
 
 
@@ -44,4 +45,4 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Body Hit Asteroid...")
 	if body.has_method("hit"):
 		body.hit()
-		die()
+		hit()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj6wbc1rkkw3t"]
 
 [ext_resource type="Script" uid="uid://cqdbsi26c0obg" path="res://scripts/asteroid.gd" id="1_6mo6b"]
-[ext_resource type="Script" path="res://scripts/moving_object.gd" id="1_xn8ob"]
+[ext_resource type="Script" uid="uid://bm6jycp2evauo" path="res://scripts/moving_object.gd" id="1_xn8ob"]
 [ext_resource type="Texture2D" uid="uid://w5th50kqan0q" path="res://assets/sprites/asteroids/a_e.png" id="2_6mo6b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t4se3"]

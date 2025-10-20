@@ -5,6 +5,7 @@ const PROJECTILE = preload("uid://ddoufa6s84qes")  # Projectile Scene
 @onready var attack_cooldown: Timer = %AttackCooldown
 @onready var player: RigidBody2D = $"../.."
 @onready var collision_polygon_2d: CollisionPolygon2D = $"../../CollisionPolygon2D"
+@onready var shoot_audio: Node2D = %"Player Audio/Fire Audio"
 
 
 # Spawn a projectile offset radians from directly in front of the player
@@ -26,7 +27,7 @@ func spawn_proj(offset: float = 0.0) -> void:
 		sin(player.rotation) * ((player_size.x) + (proj_size.x)),
 		-cos(player.rotation) * ((player_size.y) + (proj_size.y))
 	)
-
+	shoot_audio.play(0.0)  # plays
 	proj.position += rotated_pos
 
 
