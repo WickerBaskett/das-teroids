@@ -89,7 +89,13 @@ text = "Powerups"
 label_settings = ExtResource("1_dxasp")
 horizontal_alignment = 1
 
-[node name="PowerupsIntro" type="Label" parent="VBoxContainer/HBoxContainer/Powerups"]
+[node name="PowerupsMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Powerups"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+
+[node name="PowerupsIntro" type="Label" parent="VBoxContainer/HBoxContainer/Powerups/PowerupsMargin"]
 layout_mode = 2
 text = "As Das empowers the Das-ship with his presence other CS faculty lend him their power to save his lunch"
 label_settings = ExtResource("2_oeru5")
@@ -106,7 +112,14 @@ theme_override_constants/margin_right = 20
 [node name="PowerupsText" type="Label" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer/PowerupsMargin"]
 custom_minimum_size = Vector2(350, 1)
 layout_mode = 2
-text = "Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!"
+size_flags_vertical = 1
+text = "Das is providing the Das Blast, a wide area effect that will banish any alien students it hits
+
+
+Lawlor has been struggling with lag, in an effort to make the most of the situation he sends Lawlor Lag, an effect that slows time to a quarter its normal speed for five seconds
+
+
+Schwartz supports Das' battle for his lunch by sending Schwartz Shot which removes the ammo limitations of the Das-cannon"
 label_settings = ExtResource("2_oeru5")
 autowrap_mode = 2
 
@@ -119,21 +132,25 @@ theme_override_constants/margin_right = 20
 [node name="PowerupsText" type="Label" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer/PowerupsMargin2"]
 custom_minimum_size = Vector2(350, 1)
 layout_mode = 2
-text = "Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!"
+size_flags_vertical = 1
+text = "Chappell isnt entirley sure what is happening but he advises Das that sometimes the best way to defend your lunch is to start Chomping. When Das uses Chappell Chomp he becomes invincible for five seconds
+
+
+Jena sees Das' struggle and sends the Jena Juggernaut. An effect that overcharges the Das-shield allowing it to take one more hit. Unfortunatley the Das-shield can never store more than 3 shields at any one time."
 label_settings = ExtResource("2_oeru5")
 autowrap_mode = 2
 
 [node name="ChappelChomp" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("3_8j5e8")]
-position = Vector2(606, 248)
+position = Vector2(606, 290)
 
 [node name="DasBlast" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("4_8b5cp")]
 position = Vector2(71, 240)
 
 [node name="JenaJuggernaut" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("5_8yu8j")]
-position = Vector2(611, 473)
+position = Vector2(605, 549)
 
 [node name="LawlorLag" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("6_bga3m")]
-position = Vector2(69, 398)
+position = Vector2(74, 433)
 
 [node name="ShwartzShot" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("7_nkbe5")]
-position = Vector2(64, 566)
+position = Vector2(74, 626)
