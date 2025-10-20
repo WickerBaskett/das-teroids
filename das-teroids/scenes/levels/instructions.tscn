@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://c16hvclmwy3n5"]
+
+[ext_resource type="LabelSettings" uid="uid://dhsybq5seca8x" path="res://assets/resources/heading.tres" id="1_dxasp"]
+[ext_resource type="LabelSettings" uid="uid://cjladsr122jn0" path="res://assets/resources/text.tres" id="2_oeru5"]
+[ext_resource type="PackedScene" uid="uid://botemo7ekakif" path="res://scenes/power_up/chappel_chomp.tscn" id="3_8j5e8"]
+[ext_resource type="PackedScene" uid="uid://drvdab6gc1cfq" path="res://scenes/power_up/das_blast.tscn" id="4_8b5cp"]
+[ext_resource type="PackedScene" uid="uid://c6nx8u3qyeead" path="res://scenes/power_up/jena_juggernaut.tscn" id="5_8yu8j"]
+[ext_resource type="PackedScene" uid="uid://7rr5innia2qy" path="res://scenes/power_up/lawlor_lag.tscn" id="6_bga3m"]
+[ext_resource type="PackedScene" uid="uid://bmpiritw37k1o" path="res://scenes/power_up/shwartz_shot.tscn" id="7_nkbe5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Instructions"
+label_settings = ExtResource("1_dxasp")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Lore" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LoreTitle" type="Label" parent="VBoxContainer/HBoxContainer/Lore"]
+layout_mode = 2
+text = "Lore"
+label_settings = ExtResource("1_dxasp")
+horizontal_alignment = 1
+
+[node name="LoreMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Lore"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="LoreText" type="Label" parent="VBoxContainer/HBoxContainer/Lore/LoreMargin"]
+custom_minimum_size = Vector2(350, 1)
+layout_mode = 2
+text = "Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!"
+label_settings = ExtResource("2_oeru5")
+autowrap_mode = 2
+
+[node name="Controls" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ControlsTitle" type="Label" parent="VBoxContainer/HBoxContainer/Controls"]
+layout_mode = 2
+text = "Controls"
+label_settings = ExtResource("1_dxasp")
+horizontal_alignment = 1
+
+[node name="ControlsMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ControlsText" type="Label" parent="VBoxContainer/HBoxContainer/Controls/ControlsMargin"]
+custom_minimum_size = Vector2(350, 1)
+layout_mode = 2
+text = "As Das boards the Das-ship he remembers how to control it. By pressing the Up and Down arrows keys he can move the ship forwards and backwards respectivley. When he presses the Left and Right arrow keys he can turn the ship left to right.
+
+Looking around he sees his Das-cannon, a state of the art weapon that holds three shots, if there is missing ammo it begins reloading which takes 2 seconds per ammo. To fire the Das-cannon press space.
+
+He also has his Das-shield which will protect from one alien per charge and recharges over 5 seconds
+"
+label_settings = ExtResource("2_oeru5")
+autowrap_mode = 2
+
+[node name="Powerups" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PowerupsTitle" type="Label" parent="VBoxContainer/HBoxContainer/Powerups"]
+layout_mode = 2
+text = "Powerups"
+label_settings = ExtResource("1_dxasp")
+horizontal_alignment = 1
+
+[node name="PowerupsIntro" type="Label" parent="VBoxContainer/HBoxContainer/Powerups"]
+layout_mode = 2
+text = "As Das empowers the Das-ship with his presence other CS faculty lend him their power to save his lunch"
+label_settings = ExtResource("2_oeru5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Powerups"]
+layout_mode = 2
+
+[node name="PowerupsMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="PowerupsText" type="Label" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer/PowerupsMargin"]
+custom_minimum_size = Vector2(350, 1)
+layout_mode = 2
+text = "Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!"
+label_settings = ExtResource("2_oeru5")
+autowrap_mode = 2
+
+[node name="PowerupsMargin2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="PowerupsText" type="Label" parent="VBoxContainer/HBoxContainer/Powerups/HBoxContainer/PowerupsMargin2"]
+custom_minimum_size = Vector2(350, 1)
+layout_mode = 2
+text = "Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!"
+label_settings = ExtResource("2_oeru5")
+autowrap_mode = 2
+
+[node name="ChappelChomp" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("3_8j5e8")]
+position = Vector2(606, 248)
+
+[node name="DasBlast" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("4_8b5cp")]
+position = Vector2(71, 240)
+
+[node name="JenaJuggernaut" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("5_8yu8j")]
+position = Vector2(611, 473)
+
+[node name="LawlorLag" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("6_bga3m")]
+position = Vector2(69, 398)
+
+[node name="ShwartzShot" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("7_nkbe5")]
+position = Vector2(64, 566)
