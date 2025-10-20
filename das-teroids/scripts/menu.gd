@@ -1,7 +1,7 @@
 extends Control
 
 const MAIN_LEVEL = preload("uid://dhm28ne3u5nwa")
-const CREDITS = preload("res://scenes/credits.tscn")
+const CREDITS = preload("uid://xjhxmtjmcjwo")
 const INSTRUCTIONS = preload("uid://c16hvclmwy3n5")
 
 
@@ -32,4 +32,3 @@ func _credits_button_pressed() -> void:
 
 func _on_instructions_pressed() -> void:
 	get_tree().change_scene_to_packed(INSTRUCTIONS)
-

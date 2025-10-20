@@ -1,6 +1,6 @@
-extends Node2D
+extends Control
 
-const MAIN_LEVEL = preload("uid://dhm28ne3u5nwa")
+const MENU = "res://scenes/levels/menu.tscn"
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(MAIN_LEVEL)
+	get_tree().change_scene_to_file(MENU)
