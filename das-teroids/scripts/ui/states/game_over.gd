@@ -1,7 +1,7 @@
 extends State
 @onready var score_timer: Timer = $"../../ScoreKeeper/ScoreTimer"
 
-@onready var game_over: Label = %GameOver
+@onready var game_over: BoxContainer = %GameOver
 
 
 # Called when a state is first entered

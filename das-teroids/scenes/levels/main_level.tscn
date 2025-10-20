@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhm28ne3u5nwa"]
+[gd_scene load_steps=12 format=3 uid="uid://dhm28ne3u5nwa"]
 
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroids/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player/player.tscn" id="2_ufxs0"]
-[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui/ui.tscn" id="4_u2c82"]
 [ext_resource type="AudioStream" uid="uid://pa7gygr1k2nb" path="res://assets/music/Jonathan’s Song.wav" id="4_iqu8w"]
-[ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
-[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
+[ext_resource type="Script" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
+[ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui/ui.tscn" id="4_u2c82"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Texture2D" uid="uid://betumflnsulr7" path="res://assets/sprites/backgrounds/background.png" id="5_k5pu3"]
-[ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
-[ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
-
+[ext_resource type="Script" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
+[ext_resource type="Script" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
 [ext_resource type="PackedScene" uid="uid://dcesbldjhcg2n" path="res://scenes/power_up/system/powerup_spawner.tscn" id="14_c0gn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]
@@ -24,12 +23,12 @@ position = Vector2(396, 399)
 [node name="AsteroidSpawner" parent="." instance=ExtResource("2_6we3w")]
 unique_name_in_owner = true
 
-[node name="PowerupSpawner" parent="." instance=ExtResource("14_c0gn3")]
-unique_name_in_owner = true
-
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="AsteroidSpawner"]
 stream = ExtResource("4_iqu8w")
 autoplay = true
+
+[node name="PowerupSpawner" parent="." instance=ExtResource("14_c0gn3")]
+unique_name_in_owner = true
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_u2c82")]
 player = NodePath("../Player")
@@ -45,6 +44,7 @@ debug_color = Color(0, 0.6, 0.698039, 0.0431373)
 z_index = -10
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("5_k5pu3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

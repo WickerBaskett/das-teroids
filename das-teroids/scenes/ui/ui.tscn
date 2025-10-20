@@ -1,16 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsmhw7jv238pj"]
+[gd_scene load_steps=15 format=3 uid="uid://dsmhw7jv238pj"]
 
 [ext_resource type="PackedScene" uid="uid://bfjxjanc6tx24" path="res://scenes/ui/score_keeper.tscn" id="1_nt7q6"]
-[ext_resource type="Script" uid="uid://dp88orswykbe3" path="res://scripts/ui/ui.gd" id="1_wm3ai"]
+[ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://cj4jpgdssnx6g" path="res://assets/sprites/projectile/projectile_1.png" id="2_gdt2y"]
 [ext_resource type="Texture2D" uid="uid://cfssubwb4meux" path="res://assets/sprites/projectile/projectile_2.png" id="3_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://dhbxvgd5troly" path="res://assets/sprites/projectile/projectile_3.png" id="4_8dubc"]
-[ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="6_8dubc"]
-[ext_resource type="Script" uid="uid://cdnaxn10beynr" path="res://scripts/ui/states/normal.gd" id="7_ktti3"]
-[ext_resource type="Script" uid="uid://b013eglg5qrdd" path="res://scripts/ui/states/game_over.gd" id="8_cgfq5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
-font_size = 144
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="6_8dubc"]
+[ext_resource type="Script" path="res://scripts/ui/states/normal.gd" id="7_ktti3"]
+[ext_resource type="Script" path="res://scripts/ui/states/game_over.gd" id="8_cgfq5"]
+[ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="9_h546e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p7vwb"]
 animations = [{
@@ -29,6 +27,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
+font_size = 144
+
+[sub_resource type="InputEventKey" id="InputEventKey_yqeox"]
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_vjb58"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_1mjx3"]
+events = [SubResource("InputEventKey_yqeox"), SubResource("InputEventKey_vjb58")]
+
 [node name="UI" type="Control"]
 z_index = 100
 layout_mode = 3
@@ -37,39 +49,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_wm3ai")
 
 [node name="ScoreKeeper" parent="." instance=ExtResource("1_nt7q6")]
 layout_mode = 0
 offset_right = 1151.0
-
-[node name="GameOver" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 648.0
-text = "GAME OVER!"
-label_settings = SubResource("LabelSettings_wm3ai")
-horizontal_alignment = 1
-vertical_alignment = 1
+mouse_filter = 2
 
 [node name="Magazine" type="Node" parent="."]
 
 [node name="bullet1" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(28, 101)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
-frame_progress = 0.80657756
+frame_progress = 0.806578
 
 [node name="bullet2" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(57, 101)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
-frame_progress = 0.16722794
+frame_progress = 0.167228
 
 [node name="bullet3" type="AnimatedSprite2D" parent="Magazine"]
 position = Vector2(85, 102)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
-frame_progress = 0.48735872
+frame_progress = 0.487359
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_8dubc")
@@ -88,3 +91,44 @@ offset_left = 19.0
 offset_top = 126.0
 offset_right = 93.0
 offset_bottom = 153.0
+mouse_filter = 2
+
+[node name="GameOver" type="BoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 1900.0
+offset_bottom = 890.0
+alignment = 1
+vertical = true
+script = ExtResource("9_h546e")
+
+[node name="GameOver" type="Label" parent="GameOver"]
+layout_mode = 2
+text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_wm3ai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="GameOver/AspectRatioContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+shortcut = SubResource("Shortcut_1mjx3")
+text = "Restart"
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="GameOver"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="GameOver/AspectRatioContainer2"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Return to Menu"
+
+[connection signal="pressed" from="GameOver/AspectRatioContainer/Button" to="GameOver" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOver/AspectRatioContainer2/Button" to="GameOver" method="_on_menu_button_pressed"]
