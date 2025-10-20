@@ -20,11 +20,9 @@ func _on_viewport_size_changed() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	print("test")
 	get_tree().change_scene_to_file(MENU)
 
 
 func _on_restart_button_pressed() -> void:
-	print("test")
 	visible = false
 	get_tree().reload_current_scene()
