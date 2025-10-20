@@ -48,4 +48,15 @@ theme_override_font_sizes/font_size = 36
 shortcut = SubResource("Shortcut_vjb58")
 text = "Start"
 
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="BoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BoxContainer/AspectRatioContainer2"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Credits"
+
 [connection signal="pressed" from="BoxContainer/AspectRatioContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BoxContainer/AspectRatioContainer2/Button" to="." method="_credits_button_pressed"]
