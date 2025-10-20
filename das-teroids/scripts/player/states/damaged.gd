@@ -12,7 +12,6 @@ const SHIELD_IFRAMES: float = 0.25
 
 # Called when a state is first entered
 func enter() -> void:
-	print("Entered Damaged")
 	if player.invincible:
 		player.collided = false
 		emit_signal("transition", self, "idle")

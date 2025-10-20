@@ -19,7 +19,6 @@ func physics_update(_delta: float) -> void:
 	if player_rotation == 0 and y_direction == 0:
 		thruster_particles.emitting = false
 		thruster_audio.stop()
-		print("stopping audio")
 		emit_signal("transition", self, "idle")
 	elif y_direction < 1:
 		thruster_particles.emitting = true

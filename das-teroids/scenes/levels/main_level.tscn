@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhm28ne3u5nwa"]
 
+
 [ext_resource type="PackedScene" uid="uid://dtupna0ajt487" path="res://scenes/asteroids/asteroid_spawner.tscn" id="2_6we3w"]
 [ext_resource type="PackedScene" uid="uid://drxv3m3tji3j3" path="res://scenes/player/player.tscn" id="2_ufxs0"]
 [ext_resource type="PackedScene" uid="uid://dsmhw7jv238pj" path="res://scenes/ui/ui.tscn" id="4_u2c82"]
