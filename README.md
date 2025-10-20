@@ -19,5 +19,5 @@ In Das-teroids, the player character is represented by the Das-ship: a white, tr
 - The up and down arrow keys move your ship forward and backward, respectively.
 - The left and right arrow keys rotate your ship left and right, respectively.
 - Press spacebar to fire a projectile out of the front of the ship. If you run out of ammo, don't worry! Ammo regenerates over time.
-- Colliding with an alien while your shield is active will break the shield. Your shield will regenerate over time/
+- Colliding with an alien while your shield is active will break the shield. Your shield will regenerate over time.
 - Collect powerups by running into them with your ship.
