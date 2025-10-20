@@ -5,6 +5,5 @@ extends State
 
 # Called when a state is first entered
 func enter() -> void:
-	print("Entered Dead")
 	SignalBus.emit_signal("player_death")
 	player.call_deferred("queue_free")

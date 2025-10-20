@@ -42,7 +42,6 @@ func _stop_moving(node: Node2D) -> void:
 			# Set the position to top left corner of viewport so
 			# post processing effects cover entire screen
 			if screen_effect:
-				print("Screen effect powerup collected")
 				position = get_viewport_rect().position
 
 			return

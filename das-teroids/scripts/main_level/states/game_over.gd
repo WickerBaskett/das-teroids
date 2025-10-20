@@ -6,6 +6,5 @@ extends State
 
 # Called when a state is first entered
 func enter() -> void:
-	print("Enter Game Over")
 	asteroid_spawner.call_deferred("queue_free")
 	powerup_spawner.call_deferred("queue_free")

@@ -9,7 +9,6 @@ func _ready() -> void:
 	SignalBus.connect("player_death", _on_player_death)
 	get_viewport().connect("size_changed", _on_viewport_size_change)
 	resize_valid_area()
-	print("Game Started")
 
 
 func resize_valid_area() -> void:
