@@ -4,6 +4,7 @@ const SPEED: float = 1000.0
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
+const explosion = preload("res://scenes/explosion.tscn")
 
 func _ready() -> void:
 	sprite_2d.play("default")
@@ -21,4 +22,7 @@ func _on_area_entered(area: Area2D) -> void:
 	print("Proj hit area...")
 	if area.has_method("hit"):
 		area.hit()
+		var kaboom = explosion.instantiate()
+		kaboom.position = self.position
+		get_node("/root/MainLevel").add_child(kaboom)
 		call_deferred("queue_free")
