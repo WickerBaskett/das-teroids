@@ -33,7 +33,6 @@ func spawn_proj(offset: float = 0.0) -> void:
 
 # Called when a state is first entered
 func enter() -> void:
-	
 	var bullet_offset: Array
 	if not player.infinite_ammo:
 		player.mag -= 1
