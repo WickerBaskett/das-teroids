@@ -38,25 +38,39 @@ text = "Das-Teroids"
 label_settings = SubResource("LabelSettings_4h3mk")
 horizontal_alignment = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="BoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="BoxContainer/AspectRatioContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="StartAspectRatio" type="AspectRatioContainer" parent="BoxContainer/Buttons"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="BoxContainer/Buttons/StartAspectRatio"]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 shortcut = SubResource("Shortcut_vjb58")
 text = "Start"
 
-[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="BoxContainer"]
+[node name="InstructionsAspectRatio" type="AspectRatioContainer" parent="BoxContainer/Buttons"]
+layout_mode = 2
+
+[node name="Instructions" type="Button" parent="BoxContainer/Buttons/InstructionsAspectRatio"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+shortcut = SubResource("Shortcut_vjb58")
+text = "Instructions"
+
+[node name="CreditsAspectRatio" type="AspectRatioContainer" parent="BoxContainer/Buttons"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="BoxContainer/AspectRatioContainer2"]
-custom_minimum_size = Vector2(200, 50)
+[node name="Credits" type="Button" parent="BoxContainer/Buttons/CreditsAspectRatio"]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Credits"
 
-[connection signal="pressed" from="BoxContainer/AspectRatioContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="BoxContainer/AspectRatioContainer2/Button" to="." method="_credits_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Buttons/StartAspectRatio/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Buttons/InstructionsAspectRatio/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="BoxContainer/Buttons/CreditsAspectRatio/Credits" to="." method="_credits_button_pressed"]

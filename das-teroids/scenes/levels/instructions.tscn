@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c16hvclmwy3n5"]
+[gd_scene load_steps=9 format=3 uid="uid://c16hvclmwy3n5"]
 
+[ext_resource type="Script" uid="uid://cgeg068vloerc" path="res://scripts/instructions.gd" id="1_8b5cp"]
 [ext_resource type="LabelSettings" uid="uid://dhsybq5seca8x" path="res://assets/resources/heading.tres" id="1_dxasp"]
 [ext_resource type="LabelSettings" uid="uid://cjladsr122jn0" path="res://assets/resources/text.tres" id="2_oeru5"]
 [ext_resource type="PackedScene" uid="uid://botemo7ekakif" path="res://scenes/power_up/chappel_chomp.tscn" id="3_8j5e8"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8b5cp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -154,3 +156,15 @@ position = Vector2(74, 433)
 
 [node name="ShwartzShot" parent="VBoxContainer/HBoxContainer/Powerups" instance=ExtResource("7_nkbe5")]
 position = Vector2(74, 626)
+
+[node name="MainMenuButton" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 265.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
