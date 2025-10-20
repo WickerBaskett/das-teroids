@@ -6,6 +6,7 @@ const SPEED: float = 1000.0
 
 const explosion = preload("res://scenes/explosion.tscn")
 
+
 func _ready() -> void:
 	sprite_2d.play("default")
 
