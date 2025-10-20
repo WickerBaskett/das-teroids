@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://botemo7ekakif"]
+
+[ext_resource type="Script" uid="uid://ptgpmei45ib8" path="res://scripts/power_up/chappell_chomp.gd" id="1_p8jo2"]
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/system/collectable.tscn" id="2_a78v2"]
+[ext_resource type="Texture2D" uid="uid://dag1x63ij3xj3" path="res://assets/sprites/power_up/chappell_chomp/c_chomp0.png" id="4_k6xe7"]
+[ext_resource type="Texture2D" uid="uid://xpe5dmde0rk3" path="res://assets/sprites/power_up/chappell_chomp/c_chomp1.png" id="5_a6o0v"]
+[ext_resource type="Texture2D" uid="uid://dncbp0rp2q774" path="res://assets/sprites/power_up/chappell_chomp/c_chomp2.png" id="6_1vxpx"]
+[ext_resource type="Shader" uid="uid://ibskyhoxbplr" path="res://shaders/chappel_chomp.gdshader" id="7_1vxpx"]
+[ext_resource type="Texture2D" uid="uid://ct4msshdm6ej8" path="res://assets/sprites/power_up/chappell_chomp/c_chomp3.png" id="7_a6o0v"]
+[ext_resource type="Texture2D" uid="uid://ju3ei7ro2jt8" path="res://assets/sprites/power_up/chappell_chomp/screen_effect.png" id="8_1vxpx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a78v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k6xe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a6o0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1vxpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a6o0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1vxpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a6o0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k6xe7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyo17"]
+resource_local_to_scene = true
+shader = ExtResource("7_1vxpx")
+shader_parameter/effect = ExtResource("8_1vxpx")
+
+[node name="ChappelChomp" type="Node2D"]
+script = ExtResource("1_p8jo2")
+
+[node name="Collectable" parent="." instance=ExtResource("2_a78v2")]
+scale = Vector2(2.745, 3.835)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+scale = Vector2(0.345, 0.345)
+sprite_frames = SubResource("SpriteFrames_a78v2")
+frame_progress = 0.22356626
+
+[node name="ScreenEffect" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ScreenEffect"]
+z_index = 1
+material = SubResource("ShaderMaterial_kyo17")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]

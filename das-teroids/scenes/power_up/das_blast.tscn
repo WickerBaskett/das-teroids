@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://drvdab6gc1cfq"]
+
+[ext_resource type="Script" uid="uid://camjfr2y4gjp6" path="res://scripts/power_up/das_blast.gd" id="1_rqjnk"]
+[ext_resource type="PackedScene" uid="uid://crncbk07b3ypf" path="res://scenes/power_up/system/collectable.tscn" id="2_ok1ak"]
+[ext_resource type="Texture2D" uid="uid://3eg1gcxhlr63" path="res://assets/sprites/power_up/das_blast/das_blast_3.png" id="3_hyvo2"]
+[ext_resource type="Texture2D" uid="uid://pyw8cmsh3kyt" path="res://assets/sprites/power_up/das_blast/das_blast_2.png" id="4_e4aka"]
+[ext_resource type="Texture2D" uid="uid://h62e0muj3lfl" path="res://assets/sprites/power_up/das_blast/das_blast_1.png" id="5_nmarb"]
+[ext_resource type="Texture2D" uid="uid://bx352ptid4kpa" path="res://assets/sprites/power_up/das_blast/das_blast_0.png" id="6_umesp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clbxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hyvo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e4aka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nmarb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_umesp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nmarb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e4aka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hyvo2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rqjnk"]
+resource_local_to_scene = true
+radius = 0.01
+
+[sub_resource type="Gradient" id="Gradient_ok1ak"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.7133333)
+colors = PackedColorArray(0.66, 0.35200003, 0, 0.58431375, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_asy2c"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ok1ak")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="DasBlast" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_rqjnk")
+
+[node name="Collectable" parent="." instance=ExtResource("2_ok1ak")]
+unique_name_in_owner = true
+scale = Vector2(7.43, 9.865)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_clbxl")
+animation = &"idle"
+frame_progress = 0.6365541
+
+[node name="Effect" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Effect"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_rqjnk")
+
+[node name="EffectSprite" type="Sprite2D" parent="Effect"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = SubResource("GradientTexture2D_asy2c")
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]

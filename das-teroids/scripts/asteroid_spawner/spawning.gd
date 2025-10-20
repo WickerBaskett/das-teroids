@@ -45,7 +45,7 @@ func enter() -> void:
 
 	# Apply changes to instance'
 	instance.speed *= speed_mod
-	instance.position = pos
+	instance.set_position(pos)
 	instance.set_rotation(rot)
 
 	# This feels weird, asteroids maybe shouldnt be children of
