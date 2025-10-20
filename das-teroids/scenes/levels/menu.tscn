@@ -67,6 +67,7 @@ layout_mode = 2
 
 [node name="Credits" type="Button" parent="BoxContainer/Buttons/CreditsAspectRatio"]
 custom_minimum_size = Vector2(250, 50)
+
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Credits"
@@ -74,3 +75,4 @@ text = "Credits"
 [connection signal="pressed" from="BoxContainer/Buttons/StartAspectRatio/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BoxContainer/Buttons/InstructionsAspectRatio/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="BoxContainer/Buttons/CreditsAspectRatio/Credits" to="." method="_credits_button_pressed"]
+

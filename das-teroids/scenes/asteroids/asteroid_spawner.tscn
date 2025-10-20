@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtupna0ajt487"]
+[gd_scene load_steps=7 format=3 uid="uid://dtupna0ajt487"]
 
 [ext_resource type="Script" uid="uid://nn3bo8kcne6g" path="res://scripts/asteroid_spawner/spawning.gd" id="2_2a0l6"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="2_yafkd"]
 [ext_resource type="Script" uid="uid://3q4dlwpttwl1" path="res://scripts/asteroid_spawner/idle.gd" id="3_s3ts7"]
 [ext_resource type="Script" uid="uid://c7xdfur21cyjg" path="res://scripts/asteroid_spawner/increase_difficulty.gd" id="4_h774v"]
+[ext_resource type="AudioStream" uid="uid://bksu0wblbpm65" path="res://assets/enemy hit.wav" id="5_817ur"]
+[ext_resource type="Script" uid="uid://r060kj4ncfak" path="res://scripts/asteroid_spawner/audio_handler.gd" id="6_y2p48"]
 
 [node name="AsteroidSpawner" type="Node2D"]
 
@@ -28,3 +30,7 @@ script = ExtResource("3_s3ts7")
 
 [node name="IncreaseDifficulty" type="Node" parent="StateMachine"]
 script = ExtResource("4_h774v")
+
+[node name="Asteroid Death Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_817ur")
+script = ExtResource("6_y2p48")

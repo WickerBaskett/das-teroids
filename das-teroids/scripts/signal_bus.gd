@@ -11,3 +11,5 @@ signal player_death
 signal lawlor_lag_activate
 @warning_ignore("unused_signal")
 signal stop_moving
+@warning_ignore("unused_signal")
+signal asteroid_death

@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://bag8il0k4pc4d" path="res://scripts/main_level/main_level.gd" id="4_qmak7"]
 [ext_resource type="Script" uid="uid://gf17h7liqpxg" path="res://scripts/state_machine.gd" id="5_8ra5a"]
 [ext_resource type="Texture2D" uid="uid://betumflnsulr7" path="res://assets/sprites/backgrounds/background.png" id="5_k5pu3"]
-[ext_resource type="Script" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
-[ext_resource type="Script" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
+[ext_resource type="Script" uid="uid://d21ccmwoiiare" path="res://scripts/main_level/states/normal.gd" id="6_u2c82"]
+[ext_resource type="Script" uid="uid://cv40hc6dsmtd5" path="res://scripts/main_level/states/game_over.gd" id="7_k5pu3"]
+
 [ext_resource type="PackedScene" uid="uid://dcesbldjhcg2n" path="res://scenes/power_up/system/powerup_spawner.tscn" id="14_c0gn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmak7"]

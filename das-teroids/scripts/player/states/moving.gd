@@ -8,6 +8,7 @@ const ROTATION_SPEED_SCALE = 0.1  # Scales the rotation speed of player
 @onready var shield_recharge: Timer = %ShieldRecharge
 @onready var reload_timer: Timer = %ReloadTimer
 @onready var thruster_particles: GPUParticles2D = %"Thruster Particles"
+@onready var thruster_audio: Node2D = %"Player Audio/Thruster Audio"
 
 
 # Called from physics_process(delta: float)
@@ -17,9 +18,13 @@ func physics_update(_delta: float) -> void:
 
 	if player_rotation == 0 and y_direction == 0:
 		thruster_particles.emitting = false
+		thruster_audio.stop()
+		print("stopping audio")
 		emit_signal("transition", self, "idle")
 	elif y_direction < 1:
 		thruster_particles.emitting = true
+		if !thruster_audio.is_playing():
+			thruster_audio.play()
 
 	player.angular_velocity += player_rotation * ROTATION_SPEED_SCALE
 	player.linear_velocity += player.global_transform.y * y_direction * SPEED_SCALE
