@@ -4,30 +4,12 @@
 
 [node name="Credits" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0bpdh")
-
-[node name="credits_label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 1900.0
-offset_bottom = 892.0
-theme_override_font_sizes/font_size = 40
-text = "DEVELOPERS
-
-Scrum Master
-Andrew Winford
-
-Scrum-inions
-Johnathan Braugh
-Alex Johnson
-Elliott Lewendowski
-
-Music:
-Tommy Tilbury"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(250, 50)
@@ -38,5 +20,63 @@ offset_right = 229.0
 offset_bottom = 78.0
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="credits_label_1" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "DEVELOPERS
+
+Scrum Master:
+Andrew Winford
+
+Scrum-inions:
+Jonathan Brough
+Alex Johnson
+Elliott Lewendowski
+
+Music:
+Tommy Tilbury"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="credits_label_2" type="Label" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "
+POWERUPS/ALIENS:
+Das
+Jena
+Chappell
+Lawlor
+Schwartz
+Jenae
+Alex
+Andrew
+Elliot
+Jonathan
+Grace
+Buttermilk
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
