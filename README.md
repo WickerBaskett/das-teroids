@@ -5,7 +5,7 @@ This is an Asteroids-like game themed after some of the students and faculty in 
 
 ## Installation / Running
 .exe files are provided for Windows and Mac operating systems. If you use either of these operating systems and wish to run Das-teroids on your computer, simply run the appropriate .exe file and enjoy!
-If you would like to run Das-teroids on Linux, you must have the Godot IDE installed. With the Godot IDE installed, open the Das-teroids project in Godot and run it with the IDE.
+If you would like to run Das-teroids on Linux, you must have Godot v4.5 installed. With the Godot IDE installed, open the Das-teroids project in Godot and run it with the IDE.
 
 ## Premise
 Das' bell pepper is in danger! Due to a freak accident in the space-time continuum, students from another part of the galaxy have come to earth, and they're hungry! If Das is going to have something to eat for lunch, he'll have to hop in his Das-ship and start blasting! Das isn't alone either, other members of the CS faculty will be lending him their power on this mission!
